@@ -1,0 +1,115 @@
+@font-face {
+    font-family: 'Inter';
+    src: url('assets/fonts/Inter-VariableFont_slnt,wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+:root {
+    --primary-green: hsl(75, 94%, 57%);
+    --neutral-white: hsl(0, 0%, 100%);
+    --neutral-grey-700: hsl(0, 0%, 20%);
+    --neutral-grey-800: hsl(0, 0%, 12%);
+    --neutral-grey-900: hsl(0, 0%, 8%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--neutral-grey-900);
+    color: var(--neutral-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 1rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 375px;
+    margin: auto;
+}
+
+.profile-card {
+    background-color: var(--neutral-grey-800);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+}
+
+.avatar {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    margin-bottom: 24px;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.location {
+    color: var(--primary-green);
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.bio {
+    font-size: 14px;
+    margin-bottom: 24px;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.link-btn {
+    background-color: var(--neutral-grey-700);
+    color: var(--neutral-white);
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.link-btn:hover,
+.link-btn:focus {
+    background-color: var(--primary-green);
+    color: var(--neutral-grey-900);
+}
+
+.attribution {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+    color: var(--neutral-white);
+}
+
+.attribution a {
+    color: var(--primary-green);
+}
+
+@media (min-width: 1440px) {
+    .container {
+        max-width: 400px;
+    }
+
+    .profile-card {
+        padding: 40px;
+    }
+}
