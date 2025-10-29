@@ -83,6 +83,7 @@ body {
     font-size: 14px;
     font-weight: 700;
     transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
 }
 
 .link-btn:hover,
