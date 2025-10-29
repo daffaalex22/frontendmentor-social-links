@@ -8,6 +8,12 @@ const animationSteps = {
     0: {
         name: "No Animation",
         description: "Static profile card without any animations",
+        code: `<span class="code-comment">// No animation - just set final state</span>
+<span class="code-function">anime.set</span>(<span class="code-target">'.profile-card'</span>, { <span class="code-property">opacity</span>: <span class="code-value">1</span>, <span class="code-property">translateY</span>: <span class="code-value">0</span> });
+<span class="code-function">anime.set</span>(<span class="code-target">'.link-btn'</span>, { <span class="code-property">opacity</span>: <span class="code-value">1</span>, <span class="code-property">translateY</span>: <span class="code-value">0</span> });
+<span class="code-function">anime.set</span>(<span class="code-target">'.avatar'</span>, { <span class="code-property">scale</span>: <span class="code-value">1</span>, <span class="code-property">opacity</span>: <span class="code-value">1</span> });
+<span class="code-function">anime.set</span>(<span class="code-target">'.name'</span>, { <span class="code-property">rotate</span>: <span class="code-value">0</span>, <span class="code-property">opacity</span>: <span class="code-value">1</span> });
+<span class="code-function">anime.set</span>(<span class="code-target">'.bio'</span>, { <span class="code-property">color</span>: <span class="code-value">'#FFFFFF'</span>, <span class="code-property">opacity</span>: <span class="code-value">1</span> });`,
         animate: function() {
             // Reset all elements to their final state
             anime.set('.profile-card', { opacity: 1, translateY: 0 });
@@ -20,6 +26,17 @@ const animationSteps = {
     1: {
         name: "Basic Fade-in",
         description: "Profile card fades in and slides up",
+        code: `<span class="code-comment">// Reset elements to starting state</span>
+<span class="code-function">anime.set</span>(<span class="code-target">'.profile-card'</span>, { <span class="code-property">opacity</span>: <span class="code-value">0</span>, <span class="code-property">translateY</span>: <span class="code-value">50</span> });
+
+<span class="code-comment">// Animate profile card entrance</span>
+<span class="code-function">anime</span>({
+  <span class="code-property">targets</span>: <span class="code-target">'.profile-card'</span>,
+  <span class="code-property">opacity</span>: [<span class="code-value">0, 1</span>],
+  <span class="code-property">translateY</span>: [<span class="code-value">50, 0</span>],
+  <span class="code-property">duration</span>: <span class="code-value">1000</span>,
+  <span class="code-property">easing</span>: <span class="code-value">'easeOutQuad'</span>
+});`,
         animate: function() {
             // Reset first
             anime.set('.profile-card', { opacity: 0, translateY: 50 });
@@ -43,6 +60,18 @@ const animationSteps = {
     2: {
         name: "Staggered Social Links",
         description: "Social buttons cascade in with staggered timing",
+        code: `<span class="code-comment">// Reset social links to starting state</span>
+<span class="code-function">anime.set</span>(<span class="code-target">'.link-btn'</span>, { <span class="code-property">opacity</span>: <span class="code-value">0</span>, <span class="code-property">translateY</span>: <span class="code-value">30</span> });
+
+<span class="code-comment">// Animate social links with stagger effect</span>
+<span class="code-function">anime</span>({
+  <span class="code-property">targets</span>: <span class="code-target">'.link-btn'</span>,
+  <span class="code-property">opacity</span>: [<span class="code-value">0, 1</span>],
+  <span class="code-property">translateY</span>: [<span class="code-value">30, 0</span>],
+  <span class="code-property">delay</span>: <span class="code-function">anime.stagger</span>(<span class="code-value">100</span>),
+  <span class="code-property">duration</span>: <span class="code-value">800</span>,
+  <span class="code-property">easing</span>: <span class="code-value">'easeOutExpo'</span>
+});`,
         animate: function() {
             // Reset first
             anime.set('.profile-card', { opacity: 0, translateY: 50 });
@@ -78,6 +107,17 @@ const animationSteps = {
     3: {
         name: "Elastic Avatar Scale",
         description: "Profile picture grows with bouncy elastic effect",
+        code: `<span class="code-comment">// Reset avatar to starting state</span>
+<span class="code-function">anime.set</span>(<span class="code-target">'.avatar'</span>, { <span class="code-property">scale</span>: <span class="code-value">0</span>, <span class="code-property">opacity</span>: <span class="code-value">0</span> });
+
+<span class="code-comment">// Animate avatar with elastic bouncy effect</span>
+<span class="code-function">anime</span>({
+  <span class="code-property">targets</span>: <span class="code-target">'.avatar'</span>,
+  <span class="code-property">scale</span>: [<span class="code-value">0, 1</span>],
+  <span class="code-property">opacity</span>: [<span class="code-value">0, 1</span>],
+  <span class="code-property">duration</span>: <span class="code-value">1200</span>,
+  <span class="code-property">easing</span>: <span class="code-value">'easeOutElastic'</span>
+});`,
         animate: function() {
             // Reset first
             anime.set('.profile-card', { opacity: 0, translateY: 50 });
@@ -124,6 +164,18 @@ const animationSteps = {
     4: {
         name: "Name Rotation",
         description: "Name rotates into place with fade-in effect",
+        code: `<span class="code-comment">// Reset name to starting state</span>
+<span class="code-function">anime.set</span>(<span class="code-target">'.name'</span>, { <span class="code-property">rotate</span>: <span class="code-value">-5</span>, <span class="code-property">opacity</span>: <span class="code-value">0</span> });
+
+<span class="code-comment">// Animate name with rotation and delay</span>
+<span class="code-function">anime</span>({
+  <span class="code-property">targets</span>: <span class="code-target">'.name'</span>,
+  <span class="code-property">rotate</span>: [<span class="code-value">-5, 0</span>],
+  <span class="code-property">opacity</span>: [<span class="code-value">0, 1</span>],
+  <span class="code-property">duration</span>: <span class="code-value">1000</span>,
+  <span class="code-property">delay</span>: <span class="code-value">500</span>,
+  <span class="code-property">easing</span>: <span class="code-value">'easeOutQuad'</span>
+});`,
         animate: function() {
             // Reset first
             anime.set('.profile-card', { opacity: 0, translateY: 50 });
@@ -182,6 +234,23 @@ const animationSteps = {
     5: {
         name: "Complete Animation",
         description: "All animations combined with color transition",
+        code: `<span class="code-comment">// Reset all elements to starting state</span>
+<span class="code-function">anime.set</span>(<span class="code-target">'.bio'</span>, { <span class="code-property">color</span>: <span class="code-value">'#666666'</span>, <span class="code-property">opacity</span>: <span class="code-value">0</span> });
+
+<span class="code-comment">// Animate bio with color transition</span>
+<span class="code-function">anime</span>({
+  <span class="code-property">targets</span>: <span class="code-target">'.bio'</span>,
+  <span class="code-property">color</span>: [
+    {<span class="code-property">value</span>: <span class="code-value">'#666666'</span>},
+    {<span class="code-property">value</span>: <span class="code-value">'#FFFFFF'</span>}
+  ],
+  <span class="code-property">opacity</span>: [<span class="code-value">0, 1</span>],
+  <span class="code-property">duration</span>: <span class="code-value">1500</span>,
+  <span class="code-property">delay</span>: <span class="code-value">800</span>,
+  <span class="code-property">easing</span>: <span class="code-value">'linear'</span>
+});
+
+<span class="code-comment">// Plus all previous animations...</span>`,
         animate: function() {
             // Reset first
             anime.set('.profile-card', { opacity: 0, translateY: 50 });
@@ -254,6 +323,24 @@ const animationSteps = {
     }
 };
 
+// Function to update code viewer
+function updateCodeViewer(stepNumber) {
+    const step = animationSteps[stepNumber];
+    const codeSnippet = document.getElementById('codeSnippet');
+    
+    if (step && step.code) {
+        codeSnippet.innerHTML = step.code;
+    } else {
+        codeSnippet.innerHTML = 'Select an animation step to see the code';
+    }
+}
+
+// Function to toggle code viewer
+function toggleCodeViewer() {
+    const codeViewer = document.getElementById('codeViewer');
+    codeViewer.classList.toggle('collapsed');
+}
+
 // Function to run a specific animation step
 function runAnimationStep(stepNumber) {
     // Stop any running animations
@@ -273,6 +360,9 @@ function runAnimationStep(stepNumber) {
         // Update the current step display
         document.getElementById('currentStep').textContent = 
             `Step ${stepNumber}: ${step.name}`;
+        
+        // Update code viewer
+        updateCodeViewer(stepNumber);
     }
 }
 

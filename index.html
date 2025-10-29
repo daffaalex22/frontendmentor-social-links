@@ -65,6 +65,95 @@
       font-weight: 500;
     }
 
+    .code-viewer {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 400px;
+      max-height: 300px;
+      background: var(--neutral-grey-800);
+      border: 1px solid var(--neutral-grey-700);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .code-viewer.collapsed {
+      max-height: 40px;
+    }
+
+    .code-viewer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 15px;
+      background: var(--neutral-grey-900);
+      border-radius: 8px 8px 0 0;
+      border-bottom: 1px solid var(--neutral-grey-700);
+      cursor: pointer;
+    }
+
+    .code-viewer-title {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary-green);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .code-viewer-toggle {
+      font-size: 14px;
+      color: var(--neutral-white);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .code-viewer.collapsed .code-viewer-toggle {
+      transform: rotate(180deg);
+    }
+
+    .code-viewer-content {
+      padding: 15px;
+      overflow-y: auto;
+      max-height: 260px;
+    }
+
+    .code-snippet {
+      background: var(--neutral-grey-900);
+      border: 1px solid var(--neutral-grey-700);
+      border-radius: 4px;
+      padding: 12px;
+      margin-bottom: 10px;
+      font-family: 'Courier New', monospace;
+      font-size: 11px;
+      color: #e6e6e6;
+      line-height: 1.4;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+
+    .code-comment {
+      color: #6a9955;
+      font-style: italic;
+    }
+
+    .code-property {
+      color: #9cdcfe;
+    }
+
+    .code-value {
+      color: #ce9178;
+    }
+
+    .code-function {
+      color: #dcdcaa;
+    }
+
+    .code-target {
+      color: #4fc1ff;
+    }
+
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
@@ -83,6 +172,19 @@
       <option value="5" selected>5. Complete Animation</option>
     </select>
     <div class="current-step" id="currentStep">Step 5: Complete Animation</div>
+  </div>
+
+  <!-- Code Viewer -->
+  <div class="code-viewer" id="codeViewer">
+    <div class="code-viewer-header" onclick="toggleCodeViewer()">
+      <span class="code-viewer-title">Code Viewer</span>
+      <span class="code-viewer-toggle">▼</span>
+    </div>
+    <div class="code-viewer-content" id="codeViewerContent">
+      <div class="code-snippet" id="codeSnippet">
+        Select an animation step to see the code
+      </div>
+    </div>
   </div>
 
   <div class="container">
