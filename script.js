@@ -40,4 +40,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     console.log('Scale animation for avatar added!');
+
+    // 4. ROTATION ANIMATION
+    // Add a subtle rotation to the name
+    anime({
+        targets: '.name',
+        rotate: [-5, 0],           // Start slightly tilted, rotate to normal
+        opacity: [0, 1],           // Fade in
+        duration: 1000,
+        delay: 500,                // Start after 500ms
+        easing: 'easeOutQuad'
+    });
+
+    console.log('Rotation animation for name added!');
 });
