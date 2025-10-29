@@ -12,13 +12,78 @@
   
   <title>Social Links Profile - anime.js Demo</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <!-- Animation Step Selector Styles -->
   <style>
+    .animation-selector {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: var(--neutral-grey-800);
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--neutral-grey-700);
+    }
+
+    .animation-selector label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--neutral-white);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .animation-selector select {
+      width: 100%;
+      padding: 8px 12px;
+      background: var(--neutral-grey-900);
+      color: var(--neutral-white);
+      border: 1px solid var(--neutral-grey-700);
+      border-radius: 4px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .animation-selector select:hover {
+      border-color: var(--primary-green);
+    }
+
+    .animation-selector select:focus {
+      outline: none;
+      border-color: var(--primary-green);
+      box-shadow: 0 0 0 2px rgba(117, 234, 144, 0.2);
+    }
+
+    .current-step {
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--primary-green);
+      font-weight: 500;
+    }
+
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
 </head>
 <body>
+
+  <!-- Animation Step Selector -->
+  <div class="animation-selector">
+    <label for="animationStep">Animation Step</label>
+    <select id="animationStep">
+      <option value="0">No Animation</option>
+      <option value="1">1. Basic Fade-in</option>
+      <option value="2">2. Staggered Social Links</option>
+      <option value="3">3. Elastic Avatar Scale</option>
+      <option value="4">4. Name Rotation</option>
+      <option value="5" selected>5. Complete Animation</option>
+    </select>
+    <div class="current-step" id="currentStep">Step 5: Complete Animation</div>
+  </div>
 
   <div class="container">
     <div class="profile-card">
