@@ -1,46 +1,83 @@
 # Copilot Instructions
 
-This is a solution for a [Frontend Mentor](https://www.frontendmentor.io) challenge. The goal is to build a social links profile page using HTML and CSS.
+This is a teaching project for learning anime.js, a lightweight JavaScript animation library. The goal is to enhance an existing social links profile page with engaging animations and interactive effects.
 
 ## Project Overview
 
-The project is a single-page static website. The main task is to replicate the design provided in the `/design` folder as closely as possible, ensuring it is responsive for both mobile and desktop views.
+The project is a single-page static website that serves as a practical introduction to anime.js. Students will learn how to add smooth animations, transitions, and micro-interactions to a functional social links profile page. The existing HTML and CSS structure provides a foundation for implementing various animation techniques.
 
 ## Key Files
 
-- `index.html`: This is the main file where the HTML structure of the profile card should be built.
-- `style-guide.md`: This file is the source of truth for design specifications. It contains the color palette, typography details (font family, sizes, and weights), and layout widths for mobile and desktop.
-- `design/`: This directory contains the JPG mockups for the mobile and desktop versions of the design (`mobile-design.jpg` and `desktop-design.jpg`). Use these as a visual guide.
-- `assets/`: This folder contains all necessary assets, including the profile picture (`assets/images/avatar-jessica.jpeg`) and the `Inter` font files (`assets/fonts`).
+- `index.html`: The main HTML structure of the profile card that will be animated.
+- `style-guide.md`: Design specifications including colors, typography, and layout dimensions.
+- `style.css`: Existing CSS styles that define the base appearance and layout.
+- `assets/`: Contains necessary assets including the profile picture and font files.
+- `script.js`: JavaScript file where anime.js animations will be implemented (create this file if it doesn't exist).
+
+## Learning Objectives
+
+Students will learn to:
+1. **Basic Animations**: Fade-in, slide, and scale effects for page elements
+2. **Staggered Animations**: Coordinated animations for multiple elements
+3. **Interactive Animations**: Hover effects and click interactions
+4. **Timeline Animations**: Complex animation sequences
+5. **Performance Optimization**: Efficient animation techniques
 
 ## Development Workflow
 
-1.  **HTML Structure**: Start by structuring the content in `index.html`. Use semantic HTML.
-2.  **Styling**:
-    - Create a new CSS file (e.g., `style.css`) for your styles and link it in `index.html`.
-    - Use the `style-guide.md` for color variables and font settings.
-    - The primary font is "Inter", which is provided locally in the `assets/fonts` directory. You should set up `@font-face` rules to use these local font files.
-    - Implement a mobile-first approach. Styles for the mobile layout should be the default, and use media queries to add or adjust styles for the desktop layout (breakpoint at 1440px, but make it responsive).
-3.  **Responsiveness**: Ensure the layout is responsive and looks good on screens between 375px and 1440px wide.
-4.  **Interactive Elements**: The social link buttons should have hover and focus states as shown in `design/active-states.jpg`.
+1. **Setup anime.js**: Add the anime.js library to the project via CDN or npm
+2. **Initial Animations**: Create page load animations for the profile card
+3. **Button Interactions**: Add hover and click animations to social links
+4. **Advanced Techniques**: Implement timeline-based animations and physics effects
+5. **Refinement**: Fine-tune timing, easing, and performance
 
-## Example of using the style guide
+## Animation Examples
 
-When setting colors, refer to `style-guide.md`. For example, the primary green color for interactive elements is `hsl(75, 94%, 57%)`. The background is a dark grey.
-
-```css
-:root {
-  --primary-green: hsl(75, 94%, 57%);
-  --neutral-white: hsl(0, 0%, 100%);
-  --neutral-grey-700: hsl(0, 0%, 20%);
-  --neutral-grey-800: hsl(0, 0%, 12%);
-  --neutral-grey-900: hsl(0, 0%, 8%);
-}
-
-body {
-  background-color: var(--neutral-grey-900);
-  color: var(--neutral-white);
-  font-family: 'Inter', sans-serif;
-}
+### Basic Fade-in Animation
+```javascript
+// Fade in the profile card on page load
+anime({
+  targets: '.profile-card',
+  opacity: [0, 1],
+  translateY: [50, 0],
+  duration: 1000,
+  easing: 'easeOutQuad'
+});
 ```
+
+### Staggered Button Animation
+```javascript
+// Animate social buttons with stagger effect
+anime({
+  targets: '.social-link',
+  opacity: [0, 1],
+  translateY: [30, 0],
+  delay: anime.stagger(100),
+  duration: 800,
+  easing: 'easeOutExpo'
+});
+```
+
+### Hover Effect
+```javascript
+// Scale buttons on hover
+document.querySelectorAll('.social-link').forEach(link => {
+  link.addEventListener('mouseenter', () => {
+    anime({
+      targets: link,
+      scale: 1.05,
+      duration: 300,
+      easing: 'easeOutQuad'
+    });
+  });
+});
+```
+
+## Teaching Tips
+
+- Start with simple animations and gradually increase complexity
+- Demonstrate different easing functions and their effects
+- Show how to chain animations using timelines
+- Emphasize performance considerations and best practices
+- Encourage experimentation with different animation parameters
 d
