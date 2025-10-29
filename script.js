@@ -28,4 +28,16 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     console.log('Staggered animation for social links added!');
+
+    // 3. SCALE ANIMATION
+    // Make the avatar appear with a scaling effect
+    anime({
+        targets: '.avatar',
+        scale: [0, 1],             // Start tiny, grow to full size
+        opacity: [0, 1],           // Fade in while scaling
+        duration: 1200,            // Longer duration for dramatic effect
+        easing: 'easeOutElastic'   // Bouncy elastic effect
+    });
+
+    console.log('Scale animation for avatar added!');
 });
