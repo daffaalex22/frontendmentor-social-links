@@ -3,6 +3,40 @@
 
 let currentAnimations = []; // Store running animations
 
+// Contextual documentation for each animation step
+const stepDocumentation = {
+    0: {
+        title: "Getting Started",
+        url: "https://animejs.com/documentation/getting-started/installation",
+        topics: ["Installation", "Basic Setup", "First Animation"]
+    },
+    1: {
+        title: "Targets & Properties",
+        url: "https://animejs.com/documentation/animation",
+        topics: ["CSS Selectors", "Opacity", "Translate", "Duration"]
+    },
+    2: {
+        title: "Stagger Animations",
+        url: "https://animejs.com/documentation/utilities/stagger",
+        topics: ["anime.stagger()", "Delay", "Multiple Elements", "Timing"]
+    },
+    3: {
+        title: "Elastic & Spring Effects",
+        url: "https://codepen.io/pen?&editors=001",
+        topics: ["Spring Physics", "Easing Functions", "Scale", "Bounce Effects"]
+    },
+    4: {
+        title: "Transform Animations",
+        url: "https://animejs.com/easing-editor/sine/outsine",
+        topics: ["Rotate", "Transform Properties", "Delay Timing", "Opacity"]
+    },
+    5: {
+        title: "Color & Timeline",
+        url: "https://animejs.com/documentation/animation/tween-value-types/color-value/",
+        topics: ["Color Animation", "Timeline", "Complex Sequences", "Linear Easing"]
+    }
+};
+
 // Animation step definitions
 const animationSteps = {
     0: {
@@ -323,6 +357,29 @@ const animationSteps = {
     }
 };
 
+// Function to update documentation links
+function updateDocumentation(stepNumber) {
+    const docLink = document.getElementById('docLink');
+    const docHint = document.getElementById('docHint');
+    const docTopics = document.getElementById('docTopics');
+
+    const docs = stepDocumentation[stepNumber];
+
+    if (docs) {
+        // Update main documentation link
+        docLink.href = docs.url;
+        docLink.innerHTML = `📚 ${docs.title}`;
+
+        // Update hint
+        docHint.textContent = `Focus on: ${docs.topics.join(', ')}`;
+
+        // Create topic links
+        docTopics.innerHTML = docs.topics.map(topic =>
+            `<span class="doc-topic">${topic}</span>`
+        ).join('');
+    }
+}
+
 // Function to update code viewer
 function updateCodeViewer(stepNumber) {
     const step = animationSteps[stepNumber];
@@ -355,14 +412,16 @@ function runAnimationStep(stepNumber) {
     const step = animationSteps[stepNumber];
     if (step) {
         console.log(`Running Step ${stepNumber}: ${step.name}`);
+        console.log('💡 Tip: Try exploring the anime.js documentation first before looking at the solution!');
         step.animate();
         
         // Update the current step display
         document.getElementById('currentStep').textContent = 
             `Step ${stepNumber}: ${step.name}`;
         
-        // Update code viewer
+        // Update code viewer and documentation
         updateCodeViewer(stepNumber);
+        updateDocumentation(stepNumber);
     }
 }
 
@@ -382,4 +441,5 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('Interactive animation system initialized!');
     console.log('Use the dropdown in the top-right corner to explore different animation steps.');
+    console.log('📚 Each step has contextual documentation links to help you learn!');
 });

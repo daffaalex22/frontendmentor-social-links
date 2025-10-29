@@ -157,6 +157,63 @@ body {
     font-weight: 500;
 }
 
+.documentation-link {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--neutral-grey-700);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.doc-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, var(--primary-green), #8bc34a);
+    color: var(--neutral-grey-900);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-bottom: 6px;
+}
+
+.doc-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(118, 203, 91, 0.3);
+    background: linear-gradient(135deg, #8bc34a, var(--primary-green));
+}
+
+.doc-hint {
+    font-size: 10px;
+    color: #999;
+    font-style: italic;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.doc-topics {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+}
+
+.doc-topic {
+    background: rgba(118, 203, 91, 0.1);
+    color: var(--primary-green);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 9px;
+    font-weight: 500;
+    border: 1px solid rgba(118, 203, 91, 0.2);
+}
+
 /* Code Viewer Styles */
 .code-viewer {
     position: fixed;
@@ -259,6 +316,30 @@ body {
         width: calc(100% - 40px);
         max-width: 320px;
         padding: 12px;
+    }
+
+    .documentation-link {
+        margin-top: 8px;
+        padding-top: 8px;
+    }
+
+    .doc-link {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+
+    .doc-hint {
+        font-size: 9px;
+    }
+
+    .doc-topics {
+        margin-top: 6px;
+        gap: 3px;
+    }
+
+    .doc-topic {
+        font-size: 8px;
+        padding: 1px 4px;
     }
 
     .code-viewer {
