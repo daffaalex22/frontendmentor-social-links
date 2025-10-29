@@ -15,4 +15,17 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     console.log('Basic fade-in animation initialized!');
+
+    // 2. STAGGERED ANIMATION
+    // Animate multiple elements with a delay between each one
+    anime({
+        targets: '.link-btn',
+        opacity: [0, 1],           // Fade in each button
+        translateY: [30, 0],       // Slide up from below
+        delay: anime.stagger(100), // 100ms delay between each button
+        duration: 800,             // Each button animates for 800ms
+        easing: 'easeOutExpo'      // Exponential easing for smooth effect
+    });
+
+    console.log('Staggered animation for social links added!');
 });
