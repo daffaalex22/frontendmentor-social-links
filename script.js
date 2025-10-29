@@ -2,6 +2,7 @@
 // Students can select different animation steps to see progressive development
 
 let currentAnimations = []; // Store running animations
+let currentCodeMode = 'anime'; // Track current code mode: 'anime' or 'animate'
 
 // Contextual documentation for each animation step
 const stepDocumentation = {
@@ -37,17 +38,64 @@ const stepDocumentation = {
     }
 };
 
+// Function to switch between anime() and animate() code modes
+function switchCodeMode(mode) {
+    currentCodeMode = mode;
+
+    // Update button states
+    const animeToggle = document.getElementById('animeToggle');
+    const animateToggle = document.getElementById('animateToggle');
+
+    if (mode === 'anime') {
+        animeToggle.classList.add('active');
+        animateToggle.classList.remove('active');
+    } else {
+        animateToggle.classList.add('active');
+        animeToggle.classList.remove('active');
+    }
+
+    // Update code display if a step is selected
+    const currentStep = parseInt(document.getElementById('animationStep').value);
+    updateCodeViewer(currentStep);
+}
+
 // Animation step definitions
 const animationSteps = {
     0: {
         name: "No Animation",
         description: "Static profile card without any animations",
-        code: `<span class="code-comment">// No animation - just set final state</span>
+        animeCode: `<span class="code-comment">// No animation - just set final state</span>
 <span class="code-function">anime.set</span>(<span class="code-target">'.profile-card'</span>, { <span class="code-property">opacity</span>: <span class="code-value">1</span>, <span class="code-property">translateY</span>: <span class="code-value">0</span> });
 <span class="code-function">anime.set</span>(<span class="code-target">'.link-btn'</span>, { <span class="code-property">opacity</span>: <span class="code-value">1</span>, <span class="code-property">translateY</span>: <span class="code-value">0</span> });
 <span class="code-function">anime.set</span>(<span class="code-target">'.avatar'</span>, { <span class="code-property">scale</span>: <span class="code-value">1</span>, <span class="code-property">opacity</span>: <span class="code-value">1</span> });
 <span class="code-function">anime.set</span>(<span class="code-target">'.name'</span>, { <span class="code-property">rotate</span>: <span class="code-value">0</span>, <span class="code-property">opacity</span>: <span class="code-value">1</span> });
 <span class="code-function">anime.set</span>(<span class="code-target">'.bio'</span>, { <span class="code-property">color</span>: <span class="code-value">'#FFFFFF'</span>, <span class="code-property">opacity</span>: <span class="code-value">1</span> });`,
+        animateCode: `<span class="code-comment">// Create animation instance first, then modify with animate()</span>
+<span class="code-keyword">const</span> <span class="code-variable">profileAnim</span> = <span class="code-function">anime</span>({
+  <span class="code-property">targets</span>: <span class="code-target">'.profile-card'</span>,
+  <span class="code-property">autoplay</span>: <span class="code-value">false</span>
+});
+
+<span class="code-comment">// Set final state using animate() method</span>
+<span class="code-variable">profileAnim</span>.<span class="code-function">animate</span>({
+  <span class="code-property">opacity</span>: <span class="code-value">1</span>,
+  <span class="code-property">translateY</span>: <span class="code-value">0</span>
+});
+
+<span class="code-comment">// Set other elements</span>
+<span class="code-keyword">const</span> <span class="code-variable">linksAnim</span> = <span class="code-function">anime</span>({
+  <span class="code-property">targets</span>: <span class="code-target">'.link-btn'</span>,
+  <span class="code-property">autoplay</span>: <span class="code-value">false</span>
+});
+
+<span class="code-variable">linksAnim</span>.<span class="code-function">animate</span>({
+  <span class="code-property">opacity</span>: <span class="code-value">1</span>,
+  <span class="code-property">translateY</span>: <span class="code-value">0</span>
+});
+
+<span class="code-comment">// Play all animations</span>
+<span class="code-variable">profileAnim</span>.<span class="code-function">play</span>();
+<span class="code-variable">linksAnim</span>.<span class="code-function">play</span>();`,
         animate: function() {
             // Reset all elements to their final state
             anime.set('.profile-card', { opacity: 1, translateY: 0 });
@@ -60,7 +108,7 @@ const animationSteps = {
     1: {
         name: "Basic Fade-in",
         description: "Profile card fades in and slides up",
-        code: `<span class="code-comment">// Reset elements to starting state</span>
+        animeCode: `<span class="code-comment">// Reset elements to starting state</span>
 <span class="code-function">anime.set</span>(<span class="code-target">'.profile-card'</span>, { <span class="code-property">opacity</span>: <span class="code-value">0</span>, <span class="code-property">translateY</span>: <span class="code-value">50</span> });
 
 <span class="code-comment">// Animate profile card entrance</span>
@@ -71,6 +119,23 @@ const animationSteps = {
   <span class="code-property">duration</span>: <span class="code-value">1000</span>,
   <span class="code-property">easing</span>: <span class="code-value">'easeOutQuad'</span>
 });`,
+        animateCode: `<span class="code-comment">// Import modern anime.js v4+ utilities</span>
+<span class="code-keyword">import</span> { <span class="code-function">animate</span>, <span class="code-function">stagger</span> } <span class="code-keyword">from</span> <span class="code-string">'animejs'</span>;
+
+<span class="code-comment">// Create animation with modern animate() function</span>
+<span class="code-keyword">const</span> <span class="code-variable">profileAnim</span> = <span class="code-function">animate</span>(<span class="code-string">'.profile-card'</span>, {
+  <span class="code-property">targets</span>: <span class="code-target">'.profile-card'</span>,
+  <span class="code-property">autoplay</span>: <span class="code-value">false</span>
+});
+
+<span class="code-variable">profileAnim</span>.<span class="code-function">animate</span>({
+  <span class="code-property">opacity</span>: [<span class="code-value">0, 1</span>],
+  <span class="code-property">translateY</span>: [<span class="code-value">50, 0</span>],
+  <span class="code-property">duration</span>: <span class="code-value">1000</span>,
+  <span class="code-property">easing</span>: <span class="code-value">'easeOutQuad'</span>
+});
+
+<span class="code-variable">profileAnim</span>.<span class="code-function">play</span>();`,
         animate: function() {
             // Reset first
             anime.set('.profile-card', { opacity: 0, translateY: 50 });
@@ -94,7 +159,7 @@ const animationSteps = {
     2: {
         name: "Staggered Social Links",
         description: "Social buttons cascade in with staggered timing",
-        code: `<span class="code-comment">// Reset social links to starting state</span>
+        animeCode: `<span class="code-comment">// Reset social links to starting state</span>
 <span class="code-function">anime.set</span>(<span class="code-target">'.link-btn'</span>, { <span class="code-property">opacity</span>: <span class="code-value">0</span>, <span class="code-property">translateY</span>: <span class="code-value">30</span> });
 
 <span class="code-comment">// Animate social links with stagger effect</span>
@@ -106,6 +171,18 @@ const animationSteps = {
   <span class="code-property">duration</span>: <span class="code-value">800</span>,
   <span class="code-property">easing</span>: <span class="code-value">'easeOutExpo'</span>
 });`,
+        animateCode: `<span class="code-comment">// Create staggered animation using modern animate()</span>
+<span class="code-keyword">import</span> { <span class="code-function">animate</span>, <span class="code-function">stagger</span> } <span class="code-keyword">from</span> <span class="code-string">'animejs'</span>;
+
+<span class="code-keyword">const</span> <span class="code-variable">linksAnim</span> = <span class="code-function">animate</span>(<span class="code-string">'.link-btn'</span>, {
+  <span class="code-property">opacity</span>: [<span class="code-value">0, 1</span>],
+  <span class="code-property">translateY</span>: [<span class="code-value">30, 0</span>],
+  <span class="code-property">delay</span>: <span class="code-function">stagger</span>(<span class="code-value">100</span>),
+  <span class="code-property">duration</span>: <span class="code-value">800</span>,
+  <span class="code-property">easing</span>: <span class="code-value">'easeOutExpo'</span>
+});
+
+<span class="code-variable">linksAnim</span>.<span class="code-function">play</span>();`,
         animate: function() {
             // Reset first
             anime.set('.profile-card', { opacity: 0, translateY: 50 });
@@ -141,7 +218,7 @@ const animationSteps = {
     3: {
         name: "Elastic Avatar Scale",
         description: "Profile picture grows with bouncy elastic effect",
-        code: `<span class="code-comment">// Reset avatar to starting state</span>
+        animeCode: `<span class="code-comment">// Reset avatar to starting state</span>
 <span class="code-function">anime.set</span>(<span class="code-target">'.avatar'</span>, { <span class="code-property">scale</span>: <span class="code-value">0</span>, <span class="code-property">opacity</span>: <span class="code-value">0</span> });
 
 <span class="code-comment">// Animate avatar with elastic bouncy effect</span>
@@ -152,6 +229,16 @@ const animationSteps = {
   <span class="code-property">duration</span>: <span class="code-value">1200</span>,
   <span class="code-property">easing</span>: <span class="code-value">'easeOutElastic'</span>
 });`,
+        animateCode: `<span class="code-comment">// Create elastic animation using modern animate()</span>
+<span class="code-keyword">import</span> { <span class="code-function">animate</span>, <span class="code-function">spring</span> } <span class="code-keyword">from</span> <span class="code-string">'animejs'</span>;
+
+<span class="code-keyword">const</span> <span class="code-variable">avatarAnim</span> = <span class="code-function">animate</span>(<span class="code-string">'.avatar'</span>, {
+  <span class="code-property">scale</span>: [<span class="code-value">0, 1</span>],
+  <span class="code-property">opacity</span>: [<span class="code-value">0, 1</span>],
+  <span class="code-property">easing</span>: <span class="code-function">spring</span>({ <span class="code-property">bounce</span>: <span class="code-value">0.5</span> })
+});
+
+<span class="code-variable">avatarAnim</span>.<span class="code-function">play</span>();`,
         animate: function() {
             // Reset first
             anime.set('.profile-card', { opacity: 0, translateY: 50 });
@@ -198,7 +285,7 @@ const animationSteps = {
     4: {
         name: "Name Rotation",
         description: "Name rotates into place with fade-in effect",
-        code: `<span class="code-comment">// Reset name to starting state</span>
+        animeCode: `<span class="code-comment">// Reset name to starting state</span>
 <span class="code-function">anime.set</span>(<span class="code-target">'.name'</span>, { <span class="code-property">rotate</span>: <span class="code-value">-5</span>, <span class="code-property">opacity</span>: <span class="code-value">0</span> });
 
 <span class="code-comment">// Animate name with rotation and delay</span>
@@ -210,6 +297,18 @@ const animationSteps = {
   <span class="code-property">delay</span>: <span class="code-value">500</span>,
   <span class="code-property">easing</span>: <span class="code-value">'easeOutQuad'</span>
 });`,
+        animateCode: `<span class="code-comment">// Create rotation animation using modern animate()</span>
+<span class="code-keyword">import</span> { <span class="code-function">animate</span>, <span class="code-function">spring</span> } <span class="code-keyword">from</span> <span class="code-string">'animejs'</span>;
+
+<span class="code-keyword">const</span> <span class="code-variable">nameAnim</span> = <span class="code-function">animate</span>(<span class="code-string">'.name'</span>, {
+  <span class="code-property">rotate</span>: [<span class="code-value">-5, 0</span>],
+  <span class="code-property">opacity</span>: [<span class="code-value">0, 1</span>],
+  <span class="code-property">duration</span>: <span class="code-value">1000</span>,
+  <span class="code-property">delay</span>: <span class="code-value">500</span>,
+  <span class="code-property">easing</span>: <span class="code-value">'easeOutQuad'</span>
+});
+
+<span class="code-variable">nameAnim</span>.<span class="code-function">play</span>();`,
         animate: function() {
             // Reset first
             anime.set('.profile-card', { opacity: 0, translateY: 50 });
@@ -268,7 +367,7 @@ const animationSteps = {
     5: {
         name: "Complete Animation",
         description: "All animations combined with color transition",
-        code: `<span class="code-comment">// Reset all elements to starting state</span>
+        animeCode: `<span class="code-comment">// Reset all elements to starting state</span>
 <span class="code-function">anime.set</span>(<span class="code-target">'.bio'</span>, { <span class="code-property">color</span>: <span class="code-value">'#666666'</span>, <span class="code-property">opacity</span>: <span class="code-value">0</span> });
 
 <span class="code-comment">// Animate bio with color transition</span>
@@ -285,6 +384,28 @@ const animationSteps = {
 });
 
 <span class="code-comment">// Plus all previous animations...</span>`,
+        animateCode: `<span class="code-comment">// Create complex animation using modern animate()</span>
+<span class="code-keyword">import</span> { <span class="code-function">animate</span>, <span class="code-function">timeline</span> } <span class="code-keyword">from</span> <span class="code-string">'animejs'</span>;
+
+<span class="code-comment">// Create timeline for complex sequence</span>
+<span class="code-keyword">const</span> <span class="code-variable">complexAnim</span> = <span class="code-function">timeline</span>();
+
+<span class="code-comment">// Add animations to timeline</span>
+<span class="code-variable">complexAnim</span>
+  .<span class="code-function">add</span>({
+    <span class="code-property">targets</span>: <span class="code-target">'.bio'</span>,
+    <span class="code-property">color</span>: [
+      {<span class="code-property">value</span>: <span class="code-value">'#666666'</span>},
+      {<span class="code-property">value</span>: <span class="code-value">'#FFFFFF'</span>}
+    ],
+    <span class="code-property">opacity</span>: [<span class="code-value">0, 1</span>],
+    <span class="code-property">duration</span>: <span class="code-value">1500</span>,
+    <span class="code-property">delay</span>: <span class="code-value">800</span>,
+    <span class="code-property">easing</span>: <span class="code-value">'linear'</span>
+  });
+
+<span class="code-comment">// Play the timeline</span>
+<span class="code-variable">complexAnim</span>.<span class="code-function">play</span>();`,
         animate: function() {
             // Reset first
             anime.set('.profile-card', { opacity: 0, translateY: 50 });
@@ -385,8 +506,21 @@ function updateCodeViewer(stepNumber) {
     const step = animationSteps[stepNumber];
     const codeSnippet = document.getElementById('codeSnippet');
     
-    if (step && step.code) {
-        codeSnippet.innerHTML = step.code;
+    if (step) {
+        let codeToDisplay = '';
+
+        if (currentCodeMode === 'anime' && step.animeCode) {
+            codeToDisplay = step.animeCode;
+        } else if (currentCodeMode === 'animate' && step.animateCode) {
+            codeToDisplay = step.animateCode;
+        } else if (step.code) {
+            // Fallback to original code if specific mode not available
+            codeToDisplay = step.code;
+        } else {
+            codeToDisplay = 'Select an animation step to see the code';
+        }
+
+        codeSnippet.innerHTML = codeToDisplay;
     } else {
         codeSnippet.innerHTML = 'Select an animation step to see the code';
     }

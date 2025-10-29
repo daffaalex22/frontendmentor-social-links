@@ -269,6 +269,40 @@ body {
     max-height: 260px;
 }
 
+.code-toggle {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+    justify-content: center;
+}
+
+.toggle-btn {
+    background: var(--neutral-grey-700);
+    color: var(--neutral-white);
+    border: 1px solid var(--neutral-grey-600);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.toggle-btn:hover {
+    background: var(--neutral-grey-600);
+    border-color: var(--primary-green);
+}
+
+.toggle-btn.active {
+    background: var(--primary-green);
+    color: var(--neutral-grey-900);
+    border-color: var(--primary-green);
+}
+
+.toggle-btn.active:hover {
+    background: #8bc34a;
+}
+
 .code-snippet {
     background: var(--neutral-grey-900);
     border: 1px solid var(--neutral-grey-700);
@@ -303,6 +337,14 @@ body {
 
 .code-target {
     color: #4fc1ff;
+}
+
+.code-keyword {
+    color: #569cd6;
+}
+
+.code-variable {
+    color: #9cdcfe;
 }
 
 /* Responsive Design */
@@ -391,6 +433,16 @@ body {
         font-size: 9px;
         padding: 8px;
         line-height: 1.2;
+    }
+
+    .code-toggle {
+        gap: 6px;
+        margin-bottom: 10px;
+    }
+
+    .toggle-btn {
+        font-size: 10px;
+        padding: 5px 10px;
     }
 }
 
