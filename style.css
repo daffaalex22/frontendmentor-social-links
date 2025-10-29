@@ -110,12 +110,57 @@ body {
     position: fixed;
     top: 20px;
     right: 20px;
+    width: 280px;
     z-index: 1000;
     background: var(--neutral-grey-800);
-    padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     border: 1px solid var(--neutral-grey-700);
+    transition: all 0.3s ease;
+}
+
+.animation-selector.collapsed {
+    height: 40px;
+}
+
+.animation-selector-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    background: var(--neutral-grey-900);
+    border-radius: 8px 8px 0 0;
+    border-bottom: 1px solid var(--neutral-grey-700);
+    cursor: pointer;
+}
+
+.animation-selector-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--primary-green);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.animation-selector-toggle {
+    font-size: 14px;
+    color: var(--neutral-white);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.animation-selector.collapsed .animation-selector-toggle {
+    transform: rotate(180deg);
+}
+
+.animation-selector-content {
+    padding: 15px;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.animation-selector.collapsed .animation-selector-content {
+    display: none;
 }
 
 .animation-selector label {
@@ -357,7 +402,6 @@ body {
         right: auto;
         width: calc(100% - 40px);
         max-width: 320px;
-        padding: 12px;
     }
 
     .documentation-link {
@@ -415,7 +459,6 @@ body {
     .animation-selector {
         top: 5px;
         width: calc(100% - 20px);
-        padding: 10px;
     }
 
     .code-viewer {

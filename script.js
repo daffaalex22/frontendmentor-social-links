@@ -532,6 +532,11 @@ function toggleCodeViewer() {
     codeViewer.classList.toggle('collapsed');
 }
 
+function toggleAnimationSelector() {
+    const animationSelector = document.getElementById('animationSelector');
+    animationSelector.classList.toggle('collapsed');
+}
+
 // Function to run a specific animation step
 function runAnimationStep(stepNumber) {
     // Stop any running animations

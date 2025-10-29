@@ -15,8 +15,13 @@
 <body>
 
   <!-- Animation Step Selector -->
-  <div class="animation-selector">
-    <label for="animationStep">Animation Step</label>
+  <div class="animation-selector collapsed" id="animationSelector">
+    <div class="animation-selector-header" onclick="toggleAnimationSelector()">
+      <span class="animation-selector-title">Animation Controls</span>
+      <span class="animation-selector-toggle">▼</span>
+    </div>
+    <div class="animation-selector-content" id="animationSelectorContent">
+      <label for="animationStep">Animation Step</label>
     <select id="animationStep">
       <option value="0">No Animation</option>
       <option value="1">1. Basic Fade-in</option>
@@ -35,10 +40,11 @@
       <div class="doc-hint" id="docHint">Try exploring the docs before checking the solution!</div>
       <div class="doc-topics" id="docTopics"></div>
     </div>
+    </div>
   </div>
 
   <!-- Code Viewer -->
-  <div class="code-viewer" id="codeViewer">
+  <div class="code-viewer collapsed" id="codeViewer">
     <div class="code-viewer-header" onclick="toggleCodeViewer()">
       <span class="code-viewer-title">Code Viewer</span>
       <span class="code-viewer-toggle">▼</span>
