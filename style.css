@@ -248,6 +248,71 @@ body {
     color: #4fc1ff;
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .animation-selector {
+        position: fixed;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+        width: calc(100% - 40px);
+        max-width: 320px;
+        padding: 12px;
+    }
+
+    .code-viewer {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+        width: calc(100% - 40px);
+        max-width: 320px;
+        max-height: 250px;
+    }
+
+    .code-viewer.collapsed {
+        max-height: 40px;
+    }
+
+    .code-viewer-content {
+        max-height: 210px;
+        padding: 12px;
+    }
+
+    .code-snippet {
+        font-size: 10px;
+        padding: 10px;
+        line-height: 1.3;
+    }
+}
+
+@media (max-width: 480px) {
+    .animation-selector {
+        top: 5px;
+        width: calc(100% - 20px);
+        padding: 10px;
+    }
+
+    .code-viewer {
+        bottom: 5px;
+        width: calc(100% - 20px);
+        max-height: 200px;
+    }
+
+    .code-viewer-content {
+        max-height: 160px;
+        padding: 10px;
+    }
+
+    .code-snippet {
+        font-size: 9px;
+        padding: 8px;
+        line-height: 1.2;
+    }
+}
+
 @media (min-width: 1440px) {
     .container {
         max-width: 400px;
