@@ -13,27 +13,27 @@ const stepDocumentation = {
     },
     1: {
         title: "Targets & Properties",
-        url: "https://animejs.com/documentation/animation",
+        url: "https://animejs.com/v3/documentation/#cssSelector",
         topics: ["CSS Selectors", "Opacity", "Translate", "Duration"]
     },
     2: {
         title: "Stagger Animations",
-        url: "https://animejs.com/documentation/utilities/stagger",
+        url: "https://animejs.com/v3/documentation/#staggeringBasics",
         topics: ["anime.stagger()", "Delay", "Multiple Elements", "Timing"]
     },
     3: {
         title: "Elastic & Spring Effects",
-        url: "https://codepen.io/pen?&editors=001",
+        url: "https://animejs.com/v3/documentation/#elasticEasing",
         topics: ["Spring Physics", "Easing Functions", "Scale", "Bounce Effects"]
     },
     4: {
         title: "Transform Animations",
-        url: "https://animejs.com/easing-editor/sine/outsine",
+        url: "https://animejs.com/v3/documentation/#CSStransforms",
         topics: ["Rotate", "Transform Properties", "Delay Timing", "Opacity"]
     },
     5: {
         title: "Color & Timeline",
-        url: "https://animejs.com/documentation/animation/tween-value-types/color-value/",
+        url: "https://animejs.com/v3/documentation/#colors",
         topics: ["Color Animation", "Timeline", "Complex Sequences", "Linear Easing"]
     }
 };
