@@ -53,4 +53,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     console.log('Rotation animation for name added!');
+
+    // 5. COLOR ANIMATION
+    // Animate the bio text color
+    anime({
+        targets: '.bio',
+        color: [
+            {value: '#666666'},    // Start with gray
+            {value: '#FFFFFF'}     // End with white
+        ],
+        opacity: [0, 1],
+        duration: 1500,
+        delay: 800,
+        easing: 'linear'
+    });
+
+    console.log('Color animation for bio added!');
+    console.log('All basic animations initialized!');
 });
