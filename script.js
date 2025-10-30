@@ -484,6 +484,15 @@ function toggleAnimationSelector() {
     animationSelector.classList.toggle('collapsed');
 }
 
+// Function to refresh the current animation
+function refreshCurrentAnimation() {
+    const stepSelector = document.getElementById('animationStep');
+    const currentStep = parseInt(stepSelector.value);
+
+    console.log('🔄 Refreshing animation...');
+    runAnimationStep(currentStep);
+}
+
 // Function to run a specific animation step
 function runAnimationStep(stepNumber) {
     // Stop any running animations

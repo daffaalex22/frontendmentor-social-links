@@ -202,6 +202,37 @@ body {
     font-weight: 500;
 }
 
+.refresh-btn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 10px 16px;
+    background: linear-gradient(135deg, var(--primary-green), #8bc34a);
+    color: var(--neutral-grey-900);
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.refresh-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(118, 203, 91, 0.3);
+    background: linear-gradient(135deg, #8bc34a, var(--primary-green));
+}
+
+.refresh-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(118, 203, 91, 0.2);
+}
+
 .documentation-link {
     margin-top: 12px;
     padding-top: 12px;
