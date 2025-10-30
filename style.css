@@ -8,6 +8,8 @@
 :root {
     --primary-green: hsl(75, 94%, 57%);
     --neutral-white: hsl(0, 0%, 100%);
+    --neutral-grey-100: hsl(0, 0%, 90%);
+    --neutral-grey-500: hsl(0, 0%, 30%);
     --neutral-grey-700: hsl(0, 0%, 20%);
     --neutral-grey-800: hsl(0, 0%, 12%);
     --neutral-grey-900: hsl(0, 0%, 8%);
@@ -377,6 +379,28 @@ body {
 
 .toggle-btn.active:hover {
     background: #8bc34a;
+}
+
+.toggle-btn.legacy {
+    background: var(--neutral-grey-600);
+    color: #999;
+    border: 1px dashed var(--neutral-grey-100);
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.toggle-btn.legacy:hover {
+    background: var(--neutral-grey-500);
+    border: 2px dashed var(--neutral-grey-300);
+    color: #ccc;
+}
+
+.toggle-btn.legacy.active {
+    background: #ff9800;
+    color: var(--neutral-grey-900);
+    border: 2px dashed #ff9800;
+    opacity: 1;
+    font-style: normal;
 }
 
 .code-snippet {

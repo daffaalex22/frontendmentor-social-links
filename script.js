@@ -2,7 +2,7 @@
 // Students can select different animation steps to see progressive development
 
 let currentAnimations = []; // Store running animations
-let currentCodeMode = 'anime'; // Track current code mode: 'anime' or 'animate'
+let currentCodeMode = 'animate'; // Track current code mode: 'anime' or 'animate'
 
 // Contextual documentation for each animation step
 const stepDocumentation = {
@@ -531,6 +531,9 @@ document.addEventListener('DOMContentLoaded', function() {
         runAnimationStep(selectedStep);
     });
     
+    // Initialize button states - animate() should be active by default
+    switchCodeMode('animate');
+
     // Run the initial animation (step 5 - complete animation)
     runAnimationStep(5);
     
