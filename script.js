@@ -8,32 +8,32 @@ let currentCodeMode = 'animate'; // Track current code mode: 'anime' or 'animate
 const stepDocumentation = {
     0: {
         title: "Getting Started",
-        url: "https://animejs.com/documentation",
+        url: "https://animejs-basics.vercel.app/instructions",
         topics: ["Installation", "Basic Setup", "First Animation"]
     },
     1: {
         title: "Targets & Properties",
-        url: "https://animejs.com/v3/documentation/#cssSelector",
+        url: "https://animejs.com/documentation/animation",
         topics: ["CSS Selectors", "Opacity", "Translate", "Duration"]
     },
     2: {
         title: "Stagger Animations",
-        url: "https://animejs.com/v3/documentation/#staggeringBasics",
+        url: "https://animejs.com/documentation/utilities/stagger",
         topics: ["anime.stagger()", "Delay", "Multiple Elements", "Timing"]
     },
     3: {
         title: "Elastic & Spring Effects",
-        url: "https://animejs.com/v3/documentation/#elasticEasing",
+        url: "https://codepen.io/pen?&editors=001",
         topics: ["Spring Physics", "Easing Functions", "Scale", "Bounce Effects"]
     },
     4: {
-        title: "Transform Animations",
-        url: "https://animejs.com/v3/documentation/#CSStransforms",
+        title: "Transform Animations", 
+        url: "https://animejs.com/easing-editor/sine/outsine",
         topics: ["Rotate", "Transform Properties", "Delay Timing", "Opacity"]
     },
     5: {
         title: "Color & Timeline",
-        url: "https://animejs.com/v3/documentation/#colors",
+        url: "https://animejs.com/documentation/animation/tween-value-types/color-value/",
         topics: ["Color Animation", "Timeline", "Complex Sequences", "Linear Easing"]
     }
 };
