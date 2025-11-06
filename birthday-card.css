@@ -64,7 +64,6 @@ body {
 /* Cake Container */
 .cake-container {
   position: relative;
-  margin-bottom: 30px;
   z-index: 5;
 }
 
@@ -116,7 +115,7 @@ body {
 /* Candles */
 .candles {
   position: absolute;
-  top: -40px;
+  top: -10px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -134,7 +133,7 @@ body {
 .flame {
   position: absolute;
   top: -15px;
-  left: 50%;
+  left: -2px;
   transform: translateX(-50%);
   width: 12px;
   height: 15px;
