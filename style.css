@@ -235,10 +235,25 @@ body {
     box-shadow: 0 2px 6px rgba(118, 203, 91, 0.2);
 }
 
-.documentation-link {
+.documentation-links {
     margin-top: 12px;
     padding-top: 12px;
     border-top: 1px solid var(--neutral-grey-700);
+}
+
+.documentation-link {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.documentation-link:last-child {
+    margin-bottom: 0;
+}
+
+.github-link {
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -290,6 +305,35 @@ body {
     font-size: 9px;
     font-weight: 500;
     border: 1px solid rgba(118, 203, 91, 0.2);
+}
+
+.github-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #0366d6, #0969da);
+    color: var(--neutral-white);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-bottom: 6px;
+}
+
+.github-link-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(3, 102, 214, 0.3);
+    background: linear-gradient(135deg, #0969da, #0366d6);
+}
+
+.github-hint {
+    font-size: 10px;
+    color: #999;
+    font-style: italic;
+    text-align: center;
+    opacity: 0.8;
 }
 
 /* Code Viewer Styles */
