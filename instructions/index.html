@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anime.js Setup Instructions 🎨</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            padding: 30px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            border-left: 5px solid #4facfe;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section h3 {
+            color: #34495e;
+            margin: 25px 0 15px 0;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        code {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+
+        pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        pre code {
+            background: none;
+            padding: 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: background 0.3s ease;
+        }
+
+        .copy-btn:hover {
+            background: #2980b9;
+        }
+
+        .copy-btn.copied {
+            background: #27ae60;
+        }
+
+        .step-number {
+            background: #4facfe;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .verification-box {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .verification-box.success {
+            background: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
+
+        .verification-box.error {
+            background: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+
+        .troubleshooting {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .troubleshooting h4 {
+            color: #856404;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .troubleshooting ul {
+            margin-left: 20px;
+        }
+
+        .troubleshooting li {
+            margin-bottom: 8px;
+        }
+
+        .checklist {
+            background: #e8f5e8;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .checklist li {
+            margin-bottom: 10px;
+            list-style: none;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .checklist li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+
+        .next-steps {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .next-steps h2 {
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+        }
+
+        .console-output {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+            margin: 15px 0;
+            border-left: 4px solid #4facfe;
+        }
+
+        .highlight {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            pre {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>anime.js Setup Instructions 🎨</h1>
+            <p>Learn how to set up anime.js and start creating amazing animations! 🚀</p>
+        </header>
+
+        <div class="content">
+            <section class="section">
+                <h2><span class="emoji">🤔</span> What is anime.js?</h2>
+                <p>anime.js is a lightweight JavaScript animation library that makes it easy to create smooth, performant animations on the web. We'll be using it to bring life to our social links profile page. ✨</p>
+            </section>
+
+            <section class="section">
+                <h2><span class="emoji">🛠️</span> Setup Instructions</h2>
+                
+                <h3><span class="step-number">1</span> <span class="emoji">📦</span> Add anime.js to Your Project</h3>
+                <p>The easiest way to add anime.js to your project is through a CDN (Content Delivery Network). This means you don't need to download any files - you just add a script tag to your HTML. 🌐</p>
+                
+                <p><strong>Open <code>index.html</code> and find the <code>&lt;head&gt;</code> section.</strong> Add the following line right before the closing <code>&lt;/head&gt;</code> tag:</p>
+                
+                <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>&lt;!-- Add anime.js library via CDN --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/animejs/dist/bundles/anime.umd.min.js"&gt;&lt;/script&gt;</code></pre>
+
+                <div class="highlight">
+                    <strong>Where to place it:</strong> Look for this line in your <code>index.html</code>:
+                    <pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+                    Add the anime.js script right after it:
+                    <pre><code>&lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;!-- Add anime.js library via CDN --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/animejs/dist/bundles/anime.umd.min.js"&gt;&lt;/script&gt;</code></pre>
+                </div>
+
+                <h3><span class="step-number">2</span> <span class="emoji">📝</span> Create Your Animation Script File</h3>
+                <p>Now we need to create a JavaScript file where we'll write our animations. 🎯</p>
+                
+                <p><strong>Create a new file called <code>script.js</code> in the root directory</strong> (same level as <code>index.html</code> and <code>style.css</code>).</p>
+                
+                <p>For now, just add a simple test to make sure everything is working: 👇</p>
+                
+                <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>// Test file to verify anime.js is loaded
+console.log('script.js loaded successfully!');
+console.log('anime.js version:', anime.version);</code></pre>
+
+                <h3><span class="step-number">3</span> <span class="emoji">🔗</span> Link Your Script File</h3>
+                <p>Now we need to tell the browser to load our <code>script.js</code> file. 📎</p>
+                
+                <p><strong>Add this line just before the closing <code>&lt;/body&gt;</code> tag in <code>index.html</code>:</strong></p>
+                
+                <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>&lt;!-- Link to our animation script --&gt;
+&lt;script src="script.js"&gt;&lt;/script&gt;</code></pre>
+
+                <div class="highlight">
+                    <strong>Where to place it:</strong> Look for the closing <code>&lt;/body&gt;</code> tag and add the script right before it:
+                    <pre><code>&lt;/div&gt;
+
+&lt;div class="attribution"&gt;
+  Challenge by &lt;a href="https://www.frontendmentor.io?ref=challenge" target="_blank"&gt;Frontend Mentor&lt;/a&gt;. 
+  Coded by &lt;a href="#"&gt;Daffa Alexander&lt;/a&gt;.
+&lt;/div&gt;
+
+&lt;!-- Link to your animation script --&gt;
+&lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2><span class="emoji">✅</span> Verify Basic Script Setup</h2>
+                <p>Before we add the anime.js configuration, let's make sure our basic setup is working correctly. 🔍</p>
+                
+                <div class="checklist">
+                    <h4>Follow these steps:</h4>
+                    <li><strong>Save all files</strong> (<code>index.html</code> and <code>script.js</code>) 💾</li>
+                    <li><strong>Open <code>index.html</code> in your browser</strong> 🌐</li>
+                    <li><strong>Open the browser's developer console</strong> (F12 or right-click → Inspect → Console) 🛠️</li>
+                </div>
+
+                <div class="verification-box success">
+                    <h4><span class="emoji">🎉</span> Expected Console Output:</h4>
+                    <div class="console-output">
+script.js loaded successfully!
+anime.js version: 3.2.1
+                    </div>
+                    <p><em>(The version number might be different, but that's okay!)</em></p>
+                </div>
+
+                <div class="verification-box">
+                    <h4><span class="emoji">🎉</span> Success!</h4>
+                    <p>If you see these messages, your basic setup is working and you're ready for the next step.</p>
+                </div>
+
+                <div class="verification-box error">
+                    <h4><span class="emoji">😕</span> No Messages?</h4>
+                    <p>If you don't see these messages, go back and check the troubleshooting section below before proceeding.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2><span class="emoji">⚙️</span> Configure anime.js Setup</h2>
+                <p>Now that we have anime.js loaded and our script file linked successfully, let's set up the proper structure for our animation code. This includes importing the anime.js functions we'll use and ensuring our code runs only after the page is fully loaded. 🏗️</p>
+                
+                <p><strong>Replace the content in your <code>script.js</code> file with this setup code:</strong></p>
+                
+                <pre><button class="copy-btn" onclick="copyCode(this)">Copy</button><code>// Import the functions we need from anime.js
+const { animate, stagger } = anime;
+
+// Wait for the DOM to be fully loaded before running animations
+document.addEventListener('DOMContentLoaded', function() {
+    
+    console.log('DOM fully loaded!');
+    console.log('anime.js functions ready:', { animate, stagger });
+    
+    // Your animations will go here in the next step!
+    
+});</code></pre>
+
+                <h3><span class="emoji">🧐</span> What this code does:</h3>
+                
+                <div class="highlight">
+                    <h4><span class="step-number">1</span> <code>const { animate, stagger } = anime;</code> <span class="emoji">🎯</span></h4>
+                    <ul>
+                        <li>This is called "destructuring" - we're extracting the <code>animate</code> and <code>stagger</code> functions from the global <code>anime</code> object</li>
+                        <li><code>animate</code>: The main function for creating animations <span class="emoji">🎬</span></li>
+                        <li><code>stagger</code>: A function for creating delayed animations across multiple elements <span class="emoji">⏰</span></li>
+                    </ul>
+                </div>
+
+                <div class="highlight">
+                    <h4><span class="step-number">2</span> <code>document.addEventListener('DOMContentLoaded', function() { ... });</code> <span class="emoji">⏳</span></h4>
+                    <ul>
+                        <li>This ensures our animation code only runs after the HTML page is fully loaded</li>
+                        <li>Prevents errors from trying to animate elements that don't exist yet <span class="emoji">🚫</span></li>
+                        <li>This is a best practice for any JavaScript that manipulates the DOM <span class="emoji">👍</span></li>
+                    </ul>
+                </div>
+
+                <div class="highlight">
+                    <h4><span class="emoji">💡</span> Why this setup is important:</h4>
+                    <ul>
+                        <li>Using <code>animate</code> and <code>stagger</code> directly makes our code cleaner and more readable <span class="emoji">📖</span></li>
+                        <li>The DOMContentLoaded listener prevents timing issues where animations might fail because elements aren't ready yet <span class="emoji">⚡</span></li>
+                        <li>This structure will be the foundation for all the animations we'll create <span class="emoji">🏗️</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2><span class="emoji">🎯</span> Final Verification</h2>
+                <p>Now that you've completed the full setup, let's verify everything is working correctly. 🕵️‍♂️</p>
+                
+                <div class="checklist">
+                    <h4>Follow these steps:</h4>
+                    <li><strong>Save all files</strong> (<code>index.html</code> and the updated <code>script.js</code>) 💾</li>
+                    <li><strong>Refresh your browser</strong> (or reopen <code>index.html</code>) 🔄</li>
+                    <li><strong>Open the browser's developer console</strong> (F12 or right-click → Inspect → Console) 🛠️</li>
+                </div>
+
+                <div class="verification-box success">
+                    <h4><span class="emoji">🎉</span> Expected Console Output:</h4>
+                    <div class="console-output">
+script.js loaded successfully!
+anime.js version: 3.2.1
+DOM fully loaded!
+anime.js functions ready: {animate: ƒ, stagger: ƒ}
+                    </div>
+                    <p><em>(The version number might be different, but that's okay!)</em></p>
+                </div>
+
+                <p>If you see all these messages, your complete anime.js setup is ready for animations! 🎉</p>
+            </section>
+
+            <section class="section">
+                <h2><span class="emoji">🚨</span> Troubleshooting</h2>
+                
+                <div class="troubleshooting">
+                    <h4><span class="emoji">😱</span> "anime is not defined" Error</h4>
+                    <ul>
+                        <li>Make sure you added the anime.js CDN script correctly in the <code>&lt;head&gt;</code> section <span class="emoji">📍</span></li>
+                        <li>Check that you have an internet connection (the CDN needs to download the library) <span class="emoji">🌐</span></li>
+                        <li>Verify the script tag is spelled correctly <span class="emoji">✍️</span></li>
+                    </ul>
+                </div>
+
+                <div class="troubleshooting">
+                    <h4><span class="emoji">🤔</span> "Cannot destructure property 'animate' of 'anime'" Error</h4>
+                    <ul>
+                        <li>Make sure the anime.js CDN is loaded before your <code>script.js</code> file <span class="emoji">⏰</span></li>
+                        <li>Check that the CDN script is in the <code>&lt;head&gt;</code> section, not at the bottom of the body <span class="emoji">📍</span></li>
+                        <li>Verify the anime.js CDN URL is correct <span class="emoji">🔗</span></li>
+                    </ul>
+                </div>
+
+                <div class="troubleshooting">
+                    <h4><span class="emoji">📁❌</span> "script.js not found" Error</h4>
+                    <ul>
+                        <li>Make sure <code>script.js</code> is in the same directory as <code>index.html</code> <span class="emoji">📂</span></li>
+                        <li>Check that the filename is spelled correctly (case-sensitive) <span class="emoji">🔤</span></li>
+                        <li>Verify the script src path in your HTML <span class="emoji">🔍</span></li>
+                    </ul>
+                </div>
+
+                <div class="troubleshooting">
+                    <h4><span class="emoji">🤐</span> "DOMContentLoaded not working" or No Console Messages</h4>
+                    <ul>
+                        <li>Make sure you added the console.log statements inside the DOMContentLoaded event listener <span class="emoji">📍</span></li>
+                        <li>Check that the script tag is placed before <code>&lt;/body&gt;</code> <span class="emoji">📍</span></li>
+                        <li>Try refreshing the page with Ctrl+F5 (hard refresh) <span class="emoji">🔄</span></li>
+                        <li>Verify there are no JavaScript syntax errors in your code <span class="emoji">👨‍💻</span></li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="next-steps">
+                <h2><span class="emoji">🚀</span> What's Next?</h2>
+                <p>Once you have anime.js set up and working, you're ready to start creating animations! 🎬 In the next step, we'll learn how to create basic fade-in and slide animations for the profile card. 🎭</p>
+                
+                <h3><span class="emoji">📋</span> Summary of Changes</h3>
+                <p>Your <code>index.html</code> should now have these additions:</p>
+                <div class="checklist">
+                    <li>Anime.js CDN script in the <code>&lt;head&gt;</code> section <span class="emoji">📦</span></li>
+                    <li>Your <code>script.js</code> linked before <code>&lt;/body&gt;</code> <span class="emoji">🔗</span></li>
+                </div>
+                
+                <p>And you should have a new <code>script.js</code> file with:</p>
+                <div class="checklist">
+                    <li>Proper destructuring of anime.js functions (<code>animate</code>, <code>stagger</code>) <span class="emoji">🎯</span></li>
+                    <li>DOMContentLoaded event listener setup <span class="emoji">⏳</span></li>
+                    <li>Console verification messages <span class="emoji">✅</span></li>
+                </div>
+                
+                <p><strong>Great job! You now have a complete anime.js setup ready for creating animations! 🎉🎊</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function copyCode(button) {
+            const codeBlock = button.nextElementSibling;
+            const code = codeBlock.textContent;
+            
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy code: ', err);
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = code;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+
+        // Add some smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add progress indicator
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const height = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = (scrolled / height) * 100;
+            
+            // You could add a progress bar here if desired
+        });
+    </script>
+</body>
+</html>
