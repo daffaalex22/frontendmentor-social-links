@@ -331,6 +331,169 @@ body {
   border-radius: 10px 10px 0 0;
 }
 
+/* Animation Controls */
+.animation-selector {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  min-width: 250px;
+  transition: all 0.3s ease;
+}
+
+.animation-selector-header {
+  padding: 15px;
+  background: linear-gradient(135deg, #ff6b6b, #ff4757);
+  color: white;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.animation-selector-title {
+  font-size: 14px;
+}
+
+.animation-selector-toggle {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.animation-selector.collapsed .animation-selector-toggle {
+  transform: rotate(-90deg);
+}
+
+.animation-selector-content {
+  padding: 20px;
+  max-height: 300px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.animation-selector.collapsed .animation-selector-content {
+  max-height: 0;
+  padding: 0 20px;
+}
+
+.animation-selector label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+  font-size: 12px;
+}
+
+.animation-selector select {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #ff6b6b;
+  border-radius: 5px;
+  background: white;
+  color: #333;
+  font-size: 12px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+
+.current-step {
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 11px;
+  color: #666;
+  text-align: center;
+  border-left: 3px solid #ff6b6b;
+}
+
+.refresh-btn {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(135deg, #ff6b6b, #ff4757);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.refresh-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
+}
+
+/* Code Viewer */
+.code-viewer {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  min-width: 300px;
+  max-width: 400px;
+  transition: all 0.3s ease;
+}
+
+.code-viewer-header {
+  padding: 15px;
+  background: linear-gradient(135deg, #4834d4, #686de0);
+  color: white;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.code-viewer-title {
+  font-size: 14px;
+}
+
+.code-viewer-toggle {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.code-viewer.collapsed .code-viewer-toggle {
+  transform: rotate(-90deg);
+}
+
+.code-viewer-content {
+  padding: 20px;
+  max-height: 250px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.code-viewer.collapsed .code-viewer-content {
+  max-height: 0;
+  padding: 0 20px;
+}
+
+.code-snippet {
+  background: #2d3748;
+  color: #e2e8f0;
+  padding: 15px;
+  border-radius: 5px;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  overflow-y: auto;
+  max-height: 200px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .birthday-card {
