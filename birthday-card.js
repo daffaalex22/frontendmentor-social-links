@@ -309,6 +309,14 @@ function runAnimationStep(stepNumber) {
         // Update code viewer
         updateCodeViewer(stepNumber);
     }
+
+    // Show/hide build instructions button based on selected step
+    const buildInstructionsBtn = document.getElementById('buildInstructionsBtn');
+    if (stepNumber === 0) {
+        buildInstructionsBtn.style.display = 'block';
+    } else {
+        buildInstructionsBtn.style.display = 'none';
+    }
 }
 
 // Function to update code viewer
@@ -342,6 +350,13 @@ function toggleCodeViewer() {
 function toggleAnimationSelector() {
     const animationSelector = document.getElementById('animationSelector');
     animationSelector.classList.toggle('collapsed');
+}
+
+// Function to redirect to build instructions
+function goToBuildInstructions() {
+    console.log('📝 Redirecting to build instructions...');
+    // Redirect to the build instructions page
+    window.location.href = '/instructions/birthday-card/01-build-birthday-card.html';
 }
 
 // Wait for the DOM to be fully loaded

@@ -429,6 +429,25 @@ body {
   box-shadow: 0 4px 10px rgba(255, 107, 107, 0.3);
 }
 
+.build-instructions-btn {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(135deg, #4ecdc4, #44a3aa);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+}
+
+.build-instructions-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(78, 205, 196, 0.3);
+}
+
 /* Code Viewer */
 .code-viewer {
   position: fixed;
