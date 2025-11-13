@@ -1,171 +1,125 @@
-# 🎬 anime.js Interactive Learning Project
+# 🎨 Anime.js Learning Projects
 
-![anime.js Animation Learning Project](./preview.jpg)
-
-## Welcome! 🎯
-
-This is an **interactive learning project** designed to teach anime.js animations through hands-on experimentation. Originally a social links profile, it has been transformed into a comprehensive animation tutorial.
-
-**Perfect for students learning web animation and interactive JavaScript!**
-
-## 🎓 Learning Objectives
-
-This project teaches fundamental anime.js concepts through progressive, step-by-step animations:
-
-### **Core Animation Concepts:**
-- ✨ **Basic Animations**: Fade-in, slide, and scale effects
-- 🎭 **Staggered Animations**: Coordinated multi-element animations
-- 🎈 **Elastic Effects**: Bouncy, physics-based animations
-- 🔄 **Rotation & Transform**: Complex property animations
-- 🎨 **Color Transitions**: Smooth color interpolation
-
-### **Interactive Features:**
-- 📱 **Responsive Design**: Works on all device sizes
-- 🎛️ **Step Selector**: Choose animation difficulty level
-- 💻 **Live Code Viewer**: See JavaScript code in real-time
-- 🎯 **Progressive Learning**: Build complexity gradually
-
-## 🚀 How to Use
-
-### **For Students:**
-1. **Open the project** in your browser
-2. **Use the dropdown** (top-right) to select animation steps
-3. **Watch animations** play automatically
-4. **View the code** in the bottom-right code viewer
-5. **Experiment** with different values and see results
-
-### **For Teachers:**
-1. **Demonstrate concepts** using the step selector
-2. **Show code patterns** with the live code viewer
-3. **Explain timing** and easing functions
-4. **Encourage experimentation** with different parameters
+Welcome to the anime.js v4+ learning workspace! This repository contains multiple projects designed to teach modern web animation techniques using the anime.js library.
 
 ## 📁 Project Structure
 
 ```
-├── index.html          # Main HTML structure
-├── style.css           # All styling (including responsive)
-├── script.js           # anime.js animations and interactivity
-├── assets/             # Images and fonts
-└── README.md           # This file
+├── projects/
+│   ├── social-links-profile/     # Professional profile animations
+│   └── birthday-card/             # Fun celebratory animations
+├── design/                       # Shared design assets
+└── README.md                     # This file
 ```
 
-## 🎯 Animation Steps
+## 🚀 Available Projects
 
-| Step | Animation Type | What You Learn |
-|------|---------------|----------------|
-| 0 | No Animation | Static final state |
-| 1 | Basic Fade-in | `opacity`, `translateY`, `duration` |
-| 2 | Staggered Links | `anime.stagger()`, multiple targets |
-| 3 | Elastic Scale | `scale`, `easeOutElastic` |
-| 4 | Name Rotation | `rotate`, `delay` timing |
-| 5 | Complete | All effects + color transitions |
+### 1. Social Links Profile 📱
+**Location**: `projects/social-links-profile/`
 
-## 🛠️ Technologies Used
+A professional social links profile page enhanced with smooth animations and interactive effects. Perfect for learning business-oriented animation techniques.
 
-- **HTML5** - Semantic structure
-- **CSS3** - Modern styling with CSS variables
-- **JavaScript ES6+** - Modern JavaScript features
-- **anime.js v3.2.1** - Animation library
-- **Responsive Design** - Mobile-first approach
+**Features**:
+- Profile card animations
+- Social button hover effects
+- Staggered entrance animations
+- Timeline-based sequences
 
-## 📱 Responsive Features
+**Files**:
+- `index.html` - Main profile page
+- `style.css` - Professional styling
+- `script.js` - anime.js animations
+- `assets/` - Profile images and fonts
 
-- **Desktop (>768px)**: Controls in corners, maximum functionality
-- **Tablet (≤768px)**: Centered controls, optimized spacing
-- **Mobile (≤480px)**: Full-width controls, compact code viewer
+---
 
-## 🎓 Learning Path
+### 2. Birthday Card 🎂
+**Location**: `projects/birthday-card/`
 
-### **Beginner Path:**
-1. **Start with Step 0** - Understand the static layout
-2. **Try Step 1** - Learn basic fade-in animations
-3. **Experiment** with different `duration` and `easing` values
-4. **Progress** through steps 2-5 as concepts build
+An interactive birthday card with progressive animation steps. Great for learning through hands-on experimentation with different animation types.
 
-### **Advanced Path:**
-1. **Modify existing animations** - Change colors, timing, properties
-2. **Add new animations** - Experiment with different anime.js features
-3. **Create custom steps** - Add your own animation combinations
-4. **Optimize performance** - Learn about animation efficiency
+**Features**:
+- 6 progressive animation steps
+- Interactive animation selector
+- Code viewer for learning
+- Step-by-step build tutorial
 
-## 🎯 Key anime.js Concepts Demonstrated
+**Files**:
+- `birthday-card.html` - Animated card interface
+- `birthday-card.css` - Festive styling
+- `birthday-card.js` - Multi-stage animations
+- `instructions/` - Build tutorial
 
-### **Basic Properties:**
-```javascript
-opacity: [0, 1]           // Fade from transparent to visible
-translateY: [50, 0]        // Move vertically
-scale: [0, 1]             // Resize from small to large
-rotate: [-5, 0]           // Rotate from angle to straight
-```
+---
 
-### **Timing Control:**
-```javascript
-duration: 1000             // Animation length in milliseconds
-delay: 500                // Wait before starting
-anime.stagger(100)         // Delay between multiple elements
-```
+## 🎯 Learning Objectives
 
-### **Easing Functions:**
-```javascript
-'easeOutQuad'              // Smooth deceleration
-'easeOutExpo'              // Exponential slowdown
-'easeOutElastic'           // Bouncy effect
-'linear'                   // Constant speed
-```
+Both projects teach anime.js v4+ concepts including:
+
+- **Basic Animations**: Fade, slide, and scale effects
+- **Staggered Animations**: Coordinated multi-element animations
+- **Interactive Animations**: Hover and click interactions
+- **Timeline Animations**: Complex animation sequences
+- **Performance Optimization**: Efficient animation techniques
 
 ## 🛠️ Getting Started
 
-### **Prerequisites:**
-- Basic HTML and CSS knowledge
-- Understanding of JavaScript fundamentals
-- No prior anime.js experience required!
+1. **Choose a project**: Navigate to `projects/` and pick a project folder
+2. **Open the HTML file**: Start with `index.html` or `birthday-card.html`
+3. **Follow the instructions**: Each project includes its own documentation
+4. **Experiment**: Modify the animation code to see different effects
 
-### **Setup:**
-1. **Clone** this repository
-2. **Open** `index.html` in your browser
-3. **Start experimenting** with the animation selector
-4. **Read** the code in the live code viewer
-5. **Modify** values and see immediate results
+## 📚 anime.js v4+ Syntax
 
-## 📚 Educational Resources
+These projects use the latest anime.js v4+ syntax:
 
-### **Built-in Learning:**
-- **Step-by-step progression** from simple to complex
-- **Live code examples** with syntax highlighting
-- **Interactive controls** for immediate feedback
-- **Responsive design** demonstration
+```javascript
+// v4+ uses the animate function with targets as first argument
+const { animate, stagger } = anime;
 
-### **External Resources:**
-- [anime.js Official Documentation](https://animejs.com/documentation/)
-- [MDN Web Animation Guide](https://developer.mozilla.org/en-US/docs/Web/API/Animation)
-- [CSS-Tricks Animation Guide](https://css-tricks.com/category/animation/)
+animate('.element', {
+  opacity: [0, 1],
+  translateY: [50, 0],
+  duration: 1000,
+  ease: 'outQuad'  // Note: 'easing' becomes 'ease' in v4+
+});
 
-## 🚀 Extending the Project
+// Staggered animations
+animate('.multiple-elements', {
+  translateX: [50, 0],
+  delay: stagger(100),  // Note: anime.stagger() becomes stagger() in v4+
+  duration: 800
+});
+```
 
-### **Ideas for Students:**
-- **Add hover animations** to social links
-- **Create page transitions** between different content
-- **Implement physics-based** animations
-- **Add sound effects** synchronized with animations
-- **Build custom easing** functions
+## 🆕 Adding New Projects
 
-### **Advanced Challenges:**
-- **Timeline animations** with complex sequences
-- **SVG animations** for more complex graphics
-- **Scroll-triggered** animations
-- **Performance optimization** for smooth 60fps
+To add a new project to this workspace:
 
-## 🤝 Contributing
+1. Create a new folder in `projects/your-project-name/`
+2. Add your HTML, CSS, and JavaScript files
+3. Update this README with your project details
+4. Follow the same file organization pattern
 
-This is a learning project! Feel free to:
-- **Fork** and experiment with new animations
-- **Submit issues** for bugs or improvements
-- **Suggest new learning steps** or features
-- **Share your creations** built with this foundation
+## 📝 Git Commit Standards
 
-## 📄 License
+When contributing to these projects, follow professional commit message conventions:
 
-This project is open source and available under the [MIT License](LICENSE). Feel free to use it for learning, teaching, or as a foundation for your own projects.
+```
+<type>(<scope>): <description>
 
-**Happy animating!** 🎬✨
+Examples:
+feat(animations): add staggered fade-in for social buttons
+fix(timing): adjust animation duration for smoother transitions
+docs(readme): update installation instructions for anime.js v4
+```
+
+## 🎨 Design Resources
+
+Shared design assets and guidelines are available in the `design/` folder.
+
+---
+
+**Happy Animating!** 🎬
+
+Remember: Start simple, experiment often, and have fun bringing your web pages to life with anime.js!
