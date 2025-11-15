@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Character Selection</title>
+    <link rel="stylesheet" href="../character-selection.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1 class="title">Choose Your Champion</h1>
+            <p class="subtitle">Select your character to begin your adventure</p>
+        </header>
+
+        <!-- Character Grid -->
+        <main class="character-grid">
+            <!-- Character Card 1: Warrior -->
+            <div class="character-card" data-character="warrior">
+                <div class="character-image">
+                    <div class="character-avatar warrior-avatar">
+                        <div class="avatar-icon">⚔️</div>
+                    </div>
+                    <div class="selection-indicator"></div>
+                </div>
+                <div class="character-info">
+                    <h3 class="character-name">Warrior</h3>
+                    <p class="character-class">Tank • Melee</p>
+                    <div class="character-stats">
+                        <div class="stat">
+                            <span class="stat-label">Health</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill health"></div>
+                            </div>
+                            <span class="stat-value">95</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Attack</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill attack"></div>
+                            </div>
+                            <span class="stat-value">80</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Speed</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill speed"></div>
+                            </div>
+                            <span class="stat-value">60</span>
+                        </div>
+                    </div>
+                    <div class="character-abilities">
+                        <span class="ability">Shield Bash</span>
+                        <span class="ability">Battle Cry</span>
+                        <span class="ability">Iron Will</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Character Card 2: Mage -->
+            <div class="character-card" data-character="mage">
+                <div class="character-image">
+                    <div class="character-avatar mage-avatar">
+                        <div class="avatar-icon">🔮</div>
+                    </div>
+                    <div class="selection-indicator"></div>
+                </div>
+                <div class="character-info">
+                    <h3 class="character-name">Mage</h3>
+                    <p class="character-class">Caster • Ranged</p>
+                    <div class="character-stats">
+                        <div class="stat">
+                            <span class="stat-label">Health</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill health"></div>
+                            </div>
+                            <span class="stat-value">60</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Attack</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill attack"></div>
+                            </div>
+                            <span class="stat-value">95</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Speed</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill speed"></div>
+                            </div>
+                            <span class="stat-value">75</span>
+                        </div>
+                    </div>
+                    <div class="character-abilities">
+                        <span class="ability">Fireball</span>
+                        <span class="ability">Teleport</span>
+                        <span class="ability">Mana Shield</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Character Card 3: Archer -->
+            <div class="character-card" data-character="archer">
+                <div class="character-image">
+                    <div class="character-avatar archer-avatar">
+                        <div class="avatar-icon">🏹</div>
+                    </div>
+                    <div class="selection-indicator"></div>
+                </div>
+                <div class="character-info">
+                    <h3 class="character-name">Archer</h3>
+                    <p class="character-class">Ranger • Ranged</p>
+                    <div class="character-stats">
+                        <div class="stat">
+                            <span class="stat-label">Health</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill health"></div>
+                            </div>
+                            <span class="stat-value">70</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Attack</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill attack"></div>
+                            </div>
+                            <span class="stat-value">85</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Speed</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill speed"></div>
+                            </div>
+                            <span class="stat-value">90</span>
+                        </div>
+                    </div>
+                    <div class="character-abilities">
+                        <span class="ability">Piercing Shot</span>
+                        <span class="ability">Multi Shot</span>
+                        <span class="ability">Camouflage</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Character Card 4: Rogue -->
+            <div class="character-card" data-character="rogue">
+                <div class="character-image">
+                    <div class="character-avatar rogue-avatar">
+                        <div class="avatar-icon">🗡️</div>
+                    </div>
+                    <div class="selection-indicator"></div>
+                </div>
+                <div class="character-info">
+                    <h3 class="character-name">Rogue</h3>
+                    <p class="character-class">Assassin • Melee</p>
+                    <div class="character-stats">
+                        <div class="stat">
+                            <span class="stat-label">Health</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill health"></div>
+                            </div>
+                            <span class="stat-value">65</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Attack</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill attack"></div>
+                            </div>
+                            <span class="stat-value">90</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Speed</span>
+                            <div class="stat-bar">
+                                <div class="stat-fill speed"></div>
+                            </div>
+                            <span class="stat-value">95</span>
+                        </div>
+                    </div>
+                    <div class="character-abilities">
+                        <span class="ability">Backstab</span>
+                        <span class="ability">Smoke Bomb</span>
+                        <span class="ability">Shadow Step</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Selection Summary -->
+        <div class="selection-summary">
+            <div class="selected-character">
+                <span class="summary-label">Selected Character:</span>
+                <span class="character-placeholder">None</span>
+            </div>
+            <button class="start-game-btn" disabled>
+                <span class="btn-text">Start Game</span>
+                <span class="btn-icon">🎮</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="../character-selection.js"></script>
+</body>
+</html>
