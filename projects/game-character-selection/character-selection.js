@@ -142,9 +142,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const characterNameElement = selectedCard.querySelector('.character-name');
         
         // Remove selection from other cards
-        const otherCards = document.querySelectorAll('.character-card:not([data-character="' + characterName + '"])');
+        const allCards = document.querySelectorAll('.character-card');
+        allCards.forEach(card => {
+            card.classList.remove('selected');
+        });
+
+        // Add selected class to clicked card
+        selectedCard.classList.add('selected');
         
         // Animate deselection of other cards
+        const otherCards = document.querySelectorAll('.character-card:not([data-character="' + characterName + '"])');
         animate(otherCards, {
             opacity: 0.6,
             scale: 0.95,
