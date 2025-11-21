@@ -45,9 +45,9 @@ An interactive birthday card with progressive animation steps. Great for learnin
 - Step-by-step build tutorial
 
 **Files**:
-- `birthday-card.html` - Animated card interface
-- `birthday-card.css` - Festive styling
-- `birthday-card.js` - Multi-stage animations
+- `index.html` - Animated card interface
+- `index.css` - Festive styling
+- `index.js` - Multi-stage animations
 - `instructions/` - Build tutorial
 
 ---
@@ -65,7 +65,7 @@ Both projects teach anime.js v4+ concepts including:
 ## 🛠️ Getting Started
 
 1. **Choose a project**: Navigate to `projects/` and pick a project folder
-2. **Open the HTML file**: Start with `index.html` or `birthday-card.html`
+2. **Open the HTML file**: Start with `index.html`
 3. **Follow the instructions**: Each project includes its own documentation
 4. **Experiment**: Modify the animation code to see different effects
 

@@ -23,7 +23,7 @@ A complete CSS file with all the styling from the guide. Students can use this t
 
 ### Option 1: Test Your Work
 1. Follow the `HTML_CSS_SETUP_GUIDE.md` step by step
-2. Create your own `character-selection.html` and `character-selection.css` files
+2. Create your own `index.html` and `index.css` files
 3. Use the complete files to test and compare your work
 
 ### Option 2: Quick Preview

@@ -19,7 +19,7 @@ Let's start by creating the foundation of our webpage!
 
 ### 1.1 HTML Boilerplate
 
-Copy this code into your `character-selection.html` file:
+Copy this code into your `index.html` file:
 
 ```html
 <!DOCTYPE html>
@@ -28,7 +28,7 @@ Copy this code into your `character-selection.html` file:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Character Selection</title>
-    <link rel="stylesheet" href="character-selection.css">
+    <link rel="stylesheet" href="index.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -70,7 +70,7 @@ Add this inside the `<div class="container">`:
 
 ### 2.2 Basic CSS for Header
 
-Add this to your `character-selection.css` file:
+Add this to your `index.css` file:
 
 ```css
 /* Reset and Base Styles */

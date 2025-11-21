@@ -16,15 +16,15 @@ A modern, animated character selection interface built with HTML, CSS, and anime
 
 ## 🎯 Live Demo
 
-Simply open `character-selection.html` in your browser to see the animations in action.
+Simply open `index.html` in your browser to see the animations in action.
 
 ## 📁 Project Structure
 
 ```
 game-character-selection/
-├── character-selection.html    # Main HTML structure
-├── character-selection.css     # Styling and layout
-├── character-selection.js      # Anime.js v4+ animations
+├── index.html                  # Main HTML structure
+├── index.css                   # Styling and layout
+├── index.js                    # Anime.js v4+ animations
 ├── ANIMATION_GUIDE.md          # Detailed animation documentation
 └── README.md                   # This file
 ```
@@ -93,7 +93,7 @@ animate('.elements', {
 
 ### Modifying Animation Timings
 
-Edit the configuration object in `character-selection.js`:
+Edit the configuration object in `index.js`:
 
 ```javascript
 const config = {
@@ -167,7 +167,7 @@ function initCustomEffect() {
 ### Local Development
 
 1. Clone or download the project
-2. Open `character-selection.html` in a modern browser
+2. Open `index.html` in a modern browser
 3. No build process required - pure HTML/CSS/JS
 
 ### Testing Animations
@@ -182,7 +182,7 @@ function initCustomEffect() {
 Add this to enable console logging:
 
 ```javascript
-// Add at the top of character-selection.js
+// Add at the top of index.js
 const DEBUG = true;
 
 if (DEBUG) {

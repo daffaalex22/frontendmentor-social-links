@@ -5,8 +5,8 @@ Let's create a beautiful birthday card step by step! We'll build the HTML struct
 ## 📁 What You'll Need
 
 Create these files in your project folder:
-- `birthday-card.html` (our HTML structure)
-- `birthday-card.css` (our beautiful styles)
+- `index.html` (our HTML structure)
+- `index.css` (our beautiful styles)
 
 ---
 
@@ -20,7 +20,7 @@ Create these files in your project folder:
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Animated Birthday Card</title>
-  <link rel="stylesheet" href="birthday-card.css">
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
   <div class="birthday-container">
