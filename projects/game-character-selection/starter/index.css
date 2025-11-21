@@ -41,39 +41,6 @@ body {
     font-size: 1.2rem;
     color: #b0b0b0;
     font-weight: 300;
-    margin-bottom: 1.5rem;
-}
-
-/* Gist Link Button */
-.gist-link-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-}
-
-.gist-link-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
-}
-
-.gist-icon {
-    font-size: 1rem;
-}
-
-.gist-text {
-    font-family: 'Roboto', sans-serif;
 }
 
 /* Character Grid */
@@ -114,15 +81,6 @@ body {
     mask-composite: exclude;
     opacity: 0;
     transition: opacity 0.3s ease;
-}
-
-.character-card:hover::before {
-    opacity: 1;
-}
-
-.character-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
 }
 
 .character-card.selected {
@@ -344,15 +302,6 @@ body {
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
     transition: left 0.5s ease;
-}
-
-.start-game-btn:hover::before {
-    left: 100%;
-}
-
-.start-game-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
 }
 
 .start-game-btn:disabled {
