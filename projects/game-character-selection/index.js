@@ -5,7 +5,7 @@
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Import anime.js v4+ functions
-    const { animate, stagger, timeline } = anime;
+    const { animate, stagger } = anime;
 
     // Animation Configuration
     const config = {
@@ -64,6 +64,68 @@ document.addEventListener('DOMContentLoaded', function() {
             ease: 'outQuad'
         });
     }
+
+    // Initialize stat bars with correct values on page load
+    function initializeStatBars() {
+        const allCharacterCards = document.querySelectorAll('.character-card');
+
+        allCharacterCards.forEach(card => {
+            const statFills = card.querySelectorAll('.stat-fill');
+            const statValues = card.querySelectorAll('.stat-value');
+
+            // Set initial width to 0 for animation
+            statFills.forEach(fill => {
+                fill.style.width = '0%';
+            });
+
+            // Animate to correct values with stagger
+            animate(statFills, {
+                width: (el, i) => {
+                    const value = parseInt(statValues[i].textContent);
+                    return value + '%';
+                },
+                delay: stagger(50, { start: 1200 }), // Start after card animations
+                duration: 800,
+                ease: 'outQuart'
+            });
+        });
+    }
+
+    function initAbilityTagAnimations() {
+        const abilityTags = document.querySelectorAll('.ability');
+
+        // Stagger animation for ability tags
+        animate(abilityTags, {
+            opacity: [0, 1],
+            translateY: [20, 0],
+            scale: [0.8, 1],
+            delay: stagger(50, { start: 1000 }),
+            duration: 400,
+            ease: 'outQuad'
+        });
+
+        // Hover effect for ability tags
+        abilityTags.forEach(tag => {
+            tag.addEventListener('mouseenter', () => {
+                animate(tag, {
+                    scale: 1.1,
+                    backgroundColor: '#3d566e',
+                    duration: 200,
+                    ease: 'outQuad'
+                });
+            });
+
+            tag.addEventListener('mouseleave', () => {
+                animate(tag, {
+                    scale: 1,
+                    backgroundColor: 'linear-gradient(135deg, #2c3e50, #34495e)',
+                    duration: 200,
+                    ease: 'outQuad'
+                });
+            });
+        });
+    }
+
 
     // ==========================================
     // 2. CHARACTER CARD INTERACTIONS
@@ -279,32 +341,6 @@ document.addEventListener('DOMContentLoaded', function() {
             ease: config.stats.ease
         });
     }
-    
-    // Initialize stat bars with correct values on page load
-    function initializeStatBars() {
-        const allCharacterCards = document.querySelectorAll('.character-card');
-        
-        allCharacterCards.forEach(card => {
-            const statFills = card.querySelectorAll('.stat-fill');
-            const statValues = card.querySelectorAll('.stat-value');
-            
-            // Set initial width to 0 for animation
-            statFills.forEach(fill => {
-                fill.style.width = '0%';
-            });
-            
-            // Animate to correct values with stagger
-            animate(statFills, {
-                width: (el, i) => {
-                    const value = parseInt(statValues[i].textContent);
-                    return value + '%';
-                },
-                delay: stagger(50, { start: 1200 }), // Start after card animations
-                duration: 800,
-                ease: 'outQuart'
-            });
-        });
-    }
 
     // ==========================================
     // 5. START GAME BUTTON ANIMATIONS
@@ -404,45 +440,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ==========================================
-    // 6. ABILITY TAGS ANIMATIONS
-    // ==========================================
-    
-    function initAbilityTagAnimations() {
-        const abilityTags = document.querySelectorAll('.ability');
-        
-        // Stagger animation for ability tags
-        animate(abilityTags, {
-            opacity: [0, 1],
-            translateY: [20, 0],
-            scale: [0.8, 1],
-            delay: stagger(50, { start: 1000 }),
-            duration: 400,
-            ease: 'outQuad'
-        });
-
-        // Hover effect for ability tags
-        abilityTags.forEach(tag => {
-            tag.addEventListener('mouseenter', () => {
-                animate(tag, {
-                    scale: 1.1,
-                    backgroundColor: '#3d566e',
-                    duration: 200,
-                    ease: 'outQuad'
-                });
-            });
-
-            tag.addEventListener('mouseleave', () => {
-                animate(tag, {
-                    scale: 1,
-                    backgroundColor: 'linear-gradient(135deg, #2c3e50, #34495e)',
-                    duration: 200,
-                    ease: 'outQuad'
-                });
-            });
-        });
-    }
-
-    // ==========================================
     // 7. BACKGROUND PARTICLE EFFECT (Optional)
     // ==========================================
     
@@ -491,14 +488,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // ==========================================
     
     function init() {
-        // Initialize stat bars with correct values
+        // Initialize page load animations
+        initPageLoadAnimations();
         initializeStatBars();
+        initAbilityTagAnimations();
         
         // Initialize all animation systems
-        initPageLoadAnimations();
         initCharacterCardAnimations();
         initStartGameButton();
-        initAbilityTagAnimations();
         
         // Start background effect
         setTimeout(createBackgroundEffect, 1000);
