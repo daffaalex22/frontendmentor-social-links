@@ -246,34 +246,63 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function animateCharacterStats(card) {
         const statFills = card.querySelectorAll('.stat-fill');
+        const statValues = card.querySelectorAll('.stat-value');
         
-        // Reset all stat bars first
-        statFills.forEach(fill => {
+        // Get actual stat values from HTML
+        const actualStatValues = Array.from(statValues).map(el => parseInt(el.textContent));
+        
+        // Reset all stat bars first with immediate change
+        statFills.forEach((fill, i) => {
             fill.style.width = '0%';
+            // Also reset the displayed value to 0
+            statValues[i].textContent = '0';
         });
 
-        // Animate stat bars with stagger
+        // Animate stat bars with stagger using actual values
         animate(statFills, {
             width: (el, i) => {
-                const statValues = ['95%', '80%', '60%']; // Example values
-                return statValues[i];
+                return actualStatValues[i] + '%';
             },
             delay: stagger(100, { start: 300 }),
             duration: config.stats.duration,
             ease: config.stats.ease
         });
 
-        // Animate stat values counting up
-        const statValues = card.querySelectorAll('.stat-value');
+        // Animate stat values counting up using actual values
         animate(statValues, {
             innerHTML: (el, i) => {
-                const values = [95, 80, 60];
-                return [0, values[i]];
+                return [0, actualStatValues[i]];
             },
             round: 1,
             delay: stagger(100, { start: 300 }),
             duration: config.stats.duration,
             ease: config.stats.ease
+        });
+    }
+    
+    // Initialize stat bars with correct values on page load
+    function initializeStatBars() {
+        const allCharacterCards = document.querySelectorAll('.character-card');
+        
+        allCharacterCards.forEach(card => {
+            const statFills = card.querySelectorAll('.stat-fill');
+            const statValues = card.querySelectorAll('.stat-value');
+            
+            // Set initial width to 0 for animation
+            statFills.forEach(fill => {
+                fill.style.width = '0%';
+            });
+            
+            // Animate to correct values with stagger
+            animate(statFills, {
+                width: (el, i) => {
+                    const value = parseInt(statValues[i].textContent);
+                    return value + '%';
+                },
+                delay: stagger(50, { start: 1200 }), // Start after card animations
+                duration: 800,
+                ease: 'outQuart'
+            });
         });
     }
 
@@ -462,6 +491,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // ==========================================
     
     function init() {
+        // Initialize stat bars with correct values
+        initializeStatBars();
+        
         // Initialize all animation systems
         initPageLoadAnimations();
         initCharacterCardAnimations();
