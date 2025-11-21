@@ -1,6 +1,6 @@
 // Game Character Selection - Anime.js v4+ Animations
 // Import anime.js v4+ from CDN
-// <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/4.0.0/anime.min.js"></script>
+// <script src="https://cdn.jsdelivr.net/npm/animejs/dist/bundles/anime.umd.min.js"></script>
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {

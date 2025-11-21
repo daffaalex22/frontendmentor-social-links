@@ -1,1 +1,0 @@
-{"buildCommand": "cd projects/social-links-profile && npm run build", "outputDirectory": "projects/social-links-profile/dist", "routes": [{"src": "/(.*)", "dest": "/projects/social-links-profile/$1"}]}
