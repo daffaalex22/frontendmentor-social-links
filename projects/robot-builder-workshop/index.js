@@ -5,7 +5,7 @@
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Import anime.js v4+ functions
-    const { animate, stagger } = anime;
+    const { animate, stagger, utils } = anime;
 
     // Animation Configuration
     const config = {
@@ -283,8 +283,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function animateStatBar(statClass, value) {
-        const statFill = document.querySelector(`.stat-fill${statClass}`);
-        const statValue = document.querySelector(`.stat-value${statClass}`);
+        const statFill = `.stat-fill${statClass}`;
+        const statValue = `.stat-value`;
         
         if (statFill && statValue) {
             // Animate stat bar fill
@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Animate stat value counting up
             animate(statValue, {
                 innerHTML: [0, value],
-                round: 1,
+                modifier: utils.round(1),
                 duration: 800,
                 ease: 'outQuart'
             });
@@ -322,12 +322,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             // Update robot name with animation
-            animate(namePlaceholder, {
+            animate('.name-placeholder', {
                 opacity: [1, 0],
-                complete: () => {
+                onComplete: () => {
                     namePlaceholder.textContent = 'Ready!';
                     namePlaceholder.style.color = '#00ff88';
-                    animate(namePlaceholder, {
+                    animate('.name-placeholder', {
                         opacity: [0, 1],
                         scale: [0.8, 1.1, 1],
                         duration: 600,
