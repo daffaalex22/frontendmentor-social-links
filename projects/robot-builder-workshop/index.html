@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Builder Workshop</title>
+    <link rel="stylesheet" href="/projects/robot-builder-workshop/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Anime.js v4+ CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/animejs/dist/bundles/anime.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <h1 class="title">Robot Builder Workshop</h1>
+            <p class="subtitle">Select parts to build your custom robot</p>
+            <a href="https://gist.github.com/daffaalex22/2cc921c5e553b7169e0e1c07e3e61424" target="_blank" class="gist-link-btn">
+                <span class="gist-icon">📄</span>
+                <span class="gist-text">View Starter Code</span>
+            </a>
+        </header>
+
+        <!-- Main Content -->
+        <main class="workshop-content">
+            <!-- Robot Preview Area -->
+            <section class="robot-preview">
+                <div class="preview-container">
+                    <div class="robot-display">
+                        <div class="robot-part robot-head" data-part="head">
+                            <div class="part-icon">🤖</div>
+                        </div>
+                        <div class="robot-part robot-body" data-part="body">
+                            <div class="part-icon">⚙️</div>
+                        </div>
+                        <div class="robot-part robot-arms" data-part="arms">
+                            <div class="part-icon left-arm">🦾</div>
+                            <div class="part-icon right-arm">🦾</div>
+                        </div>
+                        <div class="robot-part robot-legs" data-part="legs">
+                            <div class="part-icon left-leg">🦿</div>
+                            <div class="part-icon right-leg">🦿</div>
+                        </div>
+                    </div>
+                    <div class="robot-status">
+                        <h3 class="robot-name">Robot Name: <span class="name-placeholder">Unassembled</span></h3>
+                        <div class="robot-stats">
+                            <div class="stat">
+                                <span class="stat-label">Power</span>
+                                <div class="stat-bar">
+                                    <div class="stat-fill power"></div>
+                                </div>
+                                <span class="stat-value">0</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Speed</span>
+                                <div class="stat-bar">
+                                    <div class="stat-fill speed"></div>
+                                </div>
+                                <span class="stat-value">0</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Defense</span>
+                                <div class="stat-bar">
+                                    <div class="stat-fill defense"></div>
+                                </div>
+                                <span class="stat-value">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Parts Selection Area -->
+            <section class="parts-selection">
+                <!-- Heads Selection -->
+                <div class="part-category">
+                    <h3 class="category-title">Robot Heads</h3>
+                    <div class="parts-grid">
+                        <div class="part-card" data-category="head" data-part="basic-head">
+                            <div class="part-preview basic-head">
+                                <div class="part-emoji">🤖</div>
+                            </div>
+                            <h4 class="part-name">Basic Head</h4>
+                            <div class="part-stats">
+                                <span class="stat-tag">Power: 20</span>
+                                <span class="stat-tag">Speed: 10</span>
+                            </div>
+                        </div>
+                        <div class="part-card" data-category="head" data-part="advanced-head">
+                            <div class="part-preview advanced-head">
+                                <div class="part-emoji">👾</div>
+                            </div>
+                            <h4 class="part-name">Advanced Head</h4>
+                            <div class="part-stats">
+                                <span class="stat-tag">Power: 35</span>
+                                <span class="stat-tag">Speed: 25</span>
+                            </div>
+                        </div>
+                        <div class="part-card" data-category="head" data-part="battle-head">
+                            <div class="part-preview battle-head">
+                                <div class="part-emoji">🎯</div>
+                            </div>
+                            <h4 class="part-name">Battle Head</h4>
+                            <div class="part-stats">
+                                <span class="stat-tag">Power: 45</span>
+                                <span class="stat-tag">Speed: 15</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bodies Selection -->
+                <div class="part-category">
+                    <h3 class="category-title">Robot Bodies</h3>
+                    <div class="parts-grid">
+                        <div class="part-card" data-category="body" data-part="light-body">
+                            <div class="part-preview light-body">
+                                <div class="part-emoji">🛡️</div>
+                            </div>
+                            <h4 class="part-name">Light Body</h4>
+                            <div class="part-stats">
+                                <span class="stat-tag">Power: 15</span>
+                                <span class="stat-tag">Defense: 20</span>
+                            </div>
+                        </div>
+                        <div class="part-card" data-category="body" data-part="standard-body">
+                            <div class="part-preview standard-body">
+                                <div class="part-emoji">⚙️</div>
+                            </div>
+                            <h4 class="part-name">Standard Body</h4>
+                            <div class="part-stats">
+                                <span class="stat-tag">Power: 25</span>
+                                <span class="stat-tag">Defense: 35</span>
+                            </div>
+                        </div>
+                        <div class="part-card" data-category="body" data-part="heavy-body">
+                            <div class="part-preview heavy-body">
+                                <div class="part-emoji">🔧</div>
+                            </div>
+                            <h4 class="part-name">Heavy Body</h4>
+                            <div class="part-stats">
+                                <span class="stat-tag">Power: 30</span>
+                                <span class="stat-tag">Defense: 50</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Arms Selection -->
+                <div class="part-category">
+                    <h3 class="category-title">Robot Arms</h3>
+                    <div class="parts-grid">
+                        <div class="part-card" data-category="arms" data-part="basic-arms">
+                            <div class="part-preview basic-arms">
+                                <div class="part-emoji">🦾</div>
+                            </div>
+                            <h4 class="part-name">Basic Arms</h4>
+                            <div class="part-stats">
+                                <span class="stat-tag">Power: 20</span>
+                                <span class="stat-tag">Speed: 15</span>
+                            </div>
+                        </div>
+                        <div class="part-card" data-category="arms" data-part="laser-arms">
+                            <div class="part-preview laser-arms">
+                                <div class="part-emoji">⚡</div>
+                            </div>
+                            <h4 class="part-name">Laser Arms</h4>
+                            <div class="part-stats">
+                                <span class="stat-tag">Power: 40</span>
+                                <span class="stat-tag">Speed: 30</span>
+                            </div>
+                        </div>
+                        <div class="part-card" data-category="arms" data-part="shield-arms">
+                            <div class="part-preview shield-arms">
+                                <div class="part-emoji">🛡️</div>
+                            </div>
+                            <h4 class="part-name">Shield Arms</h4>
+                            <div class="part-stats">
+                                <span class="stat-tag">Power: 15</span>
+                                <span class="stat-tag">Defense: 40</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Legs Selection -->
+                <div class="part-category">
+                    <h3 class="category-title">Robot Legs</h3>
+                    <div class="parts-grid">
+                        <div class="part-card" data-category="legs" data-part="standard-legs">
+                            <div class="part-preview standard-legs">
+                                <div class="part-emoji">🦿</div>
+                            </div>
+                            <h4 class="part-name">Standard Legs</h4>
+                            <div class="part-stats">
+                                <span class="stat-tag">Speed: 20</span>
+                                <span class="stat-tag">Defense: 15</span>
+                            </div>
+                        </div>
+                        <div class="part-card" data-category="legs" data-part="speed-legs">
+                            <div class="part-preview speed-legs">
+                                <div class="part-emoji">🚀</div>
+                            </div>
+                            <h4 class="part-name">Speed Legs</h4>
+                            <div class="part-stats">
+                                <span class="stat-tag">Speed: 45</span>
+                                <span class="stat-tag">Defense: 10</span>
+                            </div>
+                        </div>
+                        <div class="part-card" data-category="legs" data-part="tank-legs">
+                            <div class="part-preview tank-legs">
+                                <div class="part-emoji">🏗️</div>
+                            </div>
+                            <h4 class="part-name">Tank Legs</h4>
+                            <div class="part-stats">
+                                <span class="stat-tag">Speed: 10</span>
+                                <span class="stat-tag">Defense: 45</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Action Section -->
+        <section class="action-section">
+            <button class="activate-robot-btn" disabled>
+                <span class="btn-text">Activate Robot</span>
+                <span class="btn-icon">⚡</span>
+            </button>
+        </section>
+    </div>
+
+    <script src="/projects/robot-builder-workshop/index.js"></script>
+</body>
+</html>

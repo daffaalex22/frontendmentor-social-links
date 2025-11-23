@@ -33,7 +33,45 @@ A professional social links profile page enhanced with smooth animations and int
 
 ---
 
-### 2. Birthday Card 🎂
+### 2. Game Character Selection 🎮
+**Location**: `projects/game-character-selection/`
+
+A character selection interface with engaging hover effects and smooth animations. Perfect for learning interactive animation techniques.
+
+**Features**:
+- Character cards with hover effects
+- Selection animations with visual feedback
+- Dynamic stats bars
+- Game start sequence
+
+**Files**:
+- `index.html` - Character selection interface
+- `index.css` - Gaming-themed styling
+- `index.js` - Interactive animations
+- `README.md` - Project documentation
+
+---
+
+### 3. Robot Builder Workshop 🤖
+**Location**: `projects/robot-builder-workshop/`
+
+A futuristic robot assembly interface where users build custom robots with animated parts and activation sequences.
+
+**Features**:
+- Interactive part selection system
+- Real-time robot preview
+- Dynamic stats calculation
+- Robot activation animations
+
+**Files**:
+- `index.html` - Robot builder interface
+- `index.css` - Tech-themed styling
+- `index.js` - Assembly animations
+- `README.md` - Project documentation
+
+---
+
+### 4. Birthday Card 🎂
 **Location**: `projects/birthday-card/`
 
 An interactive birthday card with progressive animation steps. Great for learning through hands-on experimentation with different animation types.
@@ -54,7 +92,7 @@ An interactive birthday card with progressive animation steps. Great for learnin
 
 ## 🎯 Learning Objectives
 
-Both projects teach anime.js v4+ concepts including:
+All projects teach anime.js v4+ concepts including:
 
 - **Basic Animations**: Fade, slide, and scale effects
 - **Staggered Animations**: Coordinated multi-element animations
