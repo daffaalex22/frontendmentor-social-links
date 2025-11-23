@@ -26,6 +26,7 @@ Students will learn to:
 ## Development Workflow
 
 1. **Setup anime.js v4+**: Add the anime.js v4+ library to the project via CDN
+   - Use the latest CDN: https://cdn.jsdelivr.net/npm/animejs/dist/bundles/anime.umd.min.js
 2. **Initial Animations**: Create page load animations using the `animate` function
 3. **Button Interactions**: Add hover and click animations using v4+ syntax
 4. **Advanced Techniques**: Implement timeline-based animations and physics effects
@@ -132,4 +133,3 @@ style(css): improve button hover effects
 - Separate subject from body with blank line
 - Wrap the body at 72 characters
 - Explain what and why, not how
-d
