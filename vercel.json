@@ -1,6 +1,6 @@
 {
   "rewrites": [
-        {
+    {
       "source": "/projects/event-listener-basics/click-event/(.*)",
       "destination": "/projects/event-listener-basics/click-event/$1"
     },
