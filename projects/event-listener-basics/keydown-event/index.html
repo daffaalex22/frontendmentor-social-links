@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyDown Event Example</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="nav-button">
+            <a href="starter/index.html" class="nav-btn">← Back to Starter</a>
+        </div>
+        <h1>KeyDown Event Example</h1>
+        <p>Press any key to see different keydown event examples</p>
+        
+        <div class="input-container">
+            <label for="textInput">Type in this input field:</label>
+            <input type="text" id="textInput" placeholder="Start typing...">
+        </div>
+        
+        <div class="info-panel">
+            <p id="info">Press a key to see information here</p>
+        </div>
+        
+        <div class="key-display">
+            <p>Last key pressed: <span id="keyDisplay">None</span></p>
+            <p>Key code: <span id="keyCode">None</span></p>
+            <p>Modifier keys: <span id="modifierKeys">None</span></p>
+        </div>
+        
+        <div class="stats-panel">
+            <p>Total keys pressed: <span id="keyCount">0</span></p>
+            <p>Special keys pressed: <span id="specialKeyCount">0</span></p>
+        </div>
+        
+        <div class="instructions">
+            <h3>Try these key combinations:</h3>
+            <ul>
+                <li>Press Enter to submit</li>
+                <li>Press Escape to clear</li>
+                <li>Press Space to add a space</li>
+                <li>Use arrow keys to navigate</li>
+                <li>Try Ctrl+A to select all</li>
+                <li>Try Shift+Key for uppercase</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

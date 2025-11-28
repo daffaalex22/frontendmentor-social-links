@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MouseEnter Event Example</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="nav-button">
+            <a href="starter/index.html" class="nav-btn">← Back to Starter</a>
+        </div>
+        <h1>MouseEnter Event Example</h1>
+        <p>Hover over the elements to see different mouseenter event examples</p>
+        
+        <div class="card-container">
+            <div class="card" id="card1" data-info="This is the first card with interesting content">
+                <h3>Card 1</h3>
+                <p>Hover over me!</p>
+            </div>
+            
+            <div class="card" id="card2" data-info="This is the second card with even more interesting content">
+                <h3>Card 2</h3>
+                <p>Hover over me too!</p>
+            </div>
+            
+            <div class="card" id="card3" data-info="This is the third card with the most interesting content">
+                <h3>Card 3</h3>
+                <p>And me!</p>
+            </div>
+        </div>
+        
+        <div class="info-panel">
+            <p id="info">Hover over a card to see information here</p>
+        </div>
+        
+        <div class="stats-panel">
+            <p>Total hovers: <span id="hover-count">0</span></p>
+            <p>Current card: <span id="current-card">None</span></p>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
