@@ -5,6 +5,22 @@
       "destination": "/projects/$1"
     },
     {
+      "source": "/projects/event-listener-basics/click-event/(.*)",
+      "destination": "/projects/event-listener-basics/click-event/$1"
+    },
+    {
+      "source": "/projects/event-listener-basics/mouseenter-event/(.*)",
+      "destination": "/projects/event-listener-basics/mouseenter-event/$1"
+    },
+    {
+      "source": "/projects/event-listener-basics/mouseleave-event/(.*)",
+      "destination": "/projects/event-listener-basics/mouseleave-event/$1"
+    },
+    {
+      "source": "/projects/event-listener-basics/keydown-event/(.*)",
+      "destination": "/projects/event-listener-basics/keydown-event/$1"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
