@@ -1,10 +1,6 @@
 {
   "rewrites": [
-    {
-      "source": "/projects/(.*)",
-      "destination": "/projects/$1"
-    },
-    {
+        {
       "source": "/projects/event-listener-basics/click-event/(.*)",
       "destination": "/projects/event-listener-basics/click-event/$1"
     },
@@ -19,6 +15,10 @@
     {
       "source": "/projects/event-listener-basics/keydown-event/(.*)",
       "destination": "/projects/event-listener-basics/keydown-event/$1"
+    },
+    {
+      "source": "/projects/(.*)",
+      "destination": "/projects/$1"
     },
     {
       "source": "/(.*)",
